@@ -7,7 +7,7 @@ Portafolio de  **Análisis de Datos**, **Sistemas de Información** y visualizac
 - [Acerca del Proyecto](#acerca-del-proyecto)
 - [Características](#características)
 - [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Proyectos Destacados](#proyectos-destacados)
+- [Proyectos Destacados](#proyectos-destacados-en-Power-BI)
 
 ---
 
