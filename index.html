@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Metadatos mejorados para SEO y profesionalismo -->
+  <meta name="description" content="Portafolio profesional de Ing. Eder Steven Moriel Perero, especialista en Sistemas de Información y Análisis de Datos con Power BI, Python y SQL.">
+  <meta name="author" content="Eder Steven Moriel Perero">
+  <meta name="robots" content="index, follow">
+  <title>Eder Moriel | Analista de Datos & Sistemas de Información</title>
+  <!-- Preconexión a fuentes externas para mejorar rendimiento -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fuente profesional de Google Fonts (Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (iconos profesionales) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET Y VARIABLES CSS ========== */
+    :root {
+      --primary-dark: #0f2c1f;
+      --primary: #1e5631;
+      --primary-light: #2e7d32;
+      --primary-soft: #e8f5e9;
+      --gray-light: #f8fafc;
+      --gray: #e2e8f0;
+      --gray-dark: #334155;
+      --text-dark: #0f172a;
+      --text-light: #f1f5f9;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --transition: all 0.25s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--gray-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* ========== HEADER MEJORADO ========== */
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-image: linear-gradient(135deg, rgba(15, 44, 31, 0.85), rgba(30, 86, 49, 0.85)), url('https://img.itmastersmag.com/wp-content/uploads/2025/07/14032543/Analisis-de-Datos.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 2rem;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .hero .tagline {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    /* Skills badges mejorados */
+    .skills-badge {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .skills-badge span {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      cursor: default;
+    }
+
+    .skills-badge span:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ========== CONTAINER PRINCIPAL ========== */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    /* ========== SECCIÓN SOBRE MÍ (MODERNA) ========== */
+    .sobre-mi {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+    }
+
+    .sobre-mi:hover {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: var(--primary-light);
+      border-radius: 3px;
+    }
+
+    .grid-2cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .info-card-modern {
+      background: var(--gray-light);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      transition: var(--transition);
+      border: 1px solid var(--gray);
+    }
+
+    .info-card-modern:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-light);
+    }
+
+    .info-card-modern h3 {
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-card-modern ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-card-modern li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .info-card-modern li i {
+      color: var(--primary-light);
+      width: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .info-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--gray);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      flex: 1;
+      min-width: 160px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-light);
+    }
+
+    .card strong {
+      color: var(--primary-dark);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ========== PROYECTOS ========== */
+    .proyecto {
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3rem;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .proyecto:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .proyecto-header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      padding: 1.5rem;
+    }
+
+    .proyecto-header h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .proyecto-header p {
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+
+    .proyecto-content {
+      padding: 1.5rem;
+    }
+
+    .iframe-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      background: #f1f5f9;
+      aspect-ratio: 16 / 9;
+    }
+
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .tecnologias {
+      margin-top: 1.25rem;
+      padding: 1rem;
+      background: var(--gray-light);
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--primary-light);
+    }
+
+    .tecnologias strong {
+      color: var(--primary-dark);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .tecnologias span {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.25rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ========== FOOTER PROFESIONAL ========== */
+    footer {
+      background: var(--primary-dark);
+      color: var(--text-light);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .contacto {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contacto p {
+      margin-bottom: 0.75rem;
+    }
+
+    .contacto a {
+      color: #a5d6a5;
+      text-decoration: none;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .contacto a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .social-links {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--text-light);
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      color: #a5d6a5;
+      transform: translateY(-2px);
+    }
+
+    /* ========== ANIMACIONES ========== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .container {
+        padding: 2rem 1rem;
+      }
+      .sobre-mi {
+        padding: 1.5rem;
+      }
+      .proyecto-header h2 {
+        font-size: 1.3rem;
+      }
+      .skills-badge span {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+      }
+      .hero {
+        min-height: 70vh;
+      }
+      .info-cards {
+        flex-direction: column;
+      }
+    }
+
+    /* Mejora de accesibilidad: focus visible */
+    a:focus-visible, button:focus-visible, iframe:focus-visible {
+      outline: 2px solid var(--primary-light);
+      outline-offset: 2px;
+    }
+
+    /* Smooth scroll para links internos (si los hubiera) */
+    html {
+      scroll-padding-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Ing. Eder Steven Moriel Perero</h1>
+      <p class="tagline">Sistemas de Información | Analista de Datos</p>
+      <div class="skills-badge">
+        <span><i class="fas fa-chart-line"></i> Power BI</span>
+        <span><i class="fab fa-python"></i> Python</span>
+        <span><i class="fas fa-database"></i> SQL Server</span>
+        <span><i class="fab fa-github"></i> GitHub</span>
+        <span><i class="fas fa-tasks"></i> Scrum/Kanban</span>
+        <span><i class="fab fa-html5"></i> HTML/CSS</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Sección Sobre Mí mejorada con estructura semántica -->
+    <section class="sobre-mi" aria-label="Información personal y profesional">
+      <h2 class="section-title">Sobre Mí</h2>
+      <div class="grid-2cols">
+        <div class="info-card-modern">
+          <h3><i class="fas fa-bullseye"></i> Especialidad</h3>
+          <p>Transformación de datos en insights accionables con SQL, Python y metodologías ágiles. Especialista en visualización de datos con Power BI y reporting estratégico.</p>
+        </div>
+        <div class="info-card-modern">
+          <h3><i class="fas fa-briefcase"></i> Experiencia</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Creación de reportes en <strong>Sudamericana de Software (SASF)</strong></li>
+            <li><i class="fas fa-check-circle"></i> Registro y análisis de datos en <strong>Dirección General de Aviación Civil (DAC)</strong></li>
+          </ul>
+        </div>
+        <div class="info-card-modern">
+          <h3><i class="fas fa-tools"></i> Habilidades complementarias</h3>
+          <ul>
+            <li><i class="fas fa-network-wired"></i> Redes</li>
+            <li><i class="fas fa-desktop"></i> Mantenimiento SO</li>
+            <li><i class="fas fa-video"></i> Manejo de cámaras</li>
+          </ul>
+        </div>
+        <div class="info-card-modern">
+          <h3><i class="fas fa-star"></i> Soft Skills</h3>
+          <ul>
+            <li><i class="fas fa-heart"></i> Responsabilidad</li>
+            <li><i class="fas fa-trophy"></i> Compromiso con la excelencia</li>
+            <li><i class="fas fa-graduation-cap"></i> Aprendizaje continuo</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tarjetas de contacto rápido -->
+      <div class="info-cards">
+        <div class="card">
+          <strong><i class="fas fa-graduation-cap"></i> Formación</strong><br>
+          Sistemas de Información<br>
+          Universidad de Guayaquil
+        </div>
+        <div class="card">
+          <strong><i class="fas fa-map-marker-alt"></i> Ubicación</strong><br>
+          Guayaquil, Ecuador
+        </div>
+        <div class="card">
+          <strong><i class="fas fa-envelope"></i> Contacto</strong><br>
+          edermoriel@hotmail.com
+        </div>
+        <div class="card">
+          <strong><i class="fas fa-phone-alt"></i> Teléfono</strong><br>
+          0963156344
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTO 1: Análisis de datos históricos -->
+    <article class="proyecto">
+      <div class="proyecto-header">
+        <h2>Proyecto 1: Análisis de datos históricos</h2>
+        <p>Dashboard interactivo para el área operativa de transporte de carga pesada</p>
+      </div>
+      <div class="proyecto-content">
+        <div class="iframe-container">
+          <iframe 
+            src="https://app.powerbi.com/view?r=eyJrIjoiY2JkMDNkZWMtYTI0Ny00ZGYyLWJmYTQtYzUxN2MxNmFiNTU5IiwidCI6IjI1MGY3NmU3LTYxMDUtNDJlMy04MmQwLWJlN2M0NjBhZWE1OSIsImMiOjR9"
+            title="Dashboard Power BI - Análisis de datos históricos de transporte"
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="tecnologias">
+          <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
+          <span>Power BI</span>
+          <span>DAX</span>
+          <span>Power Query</span>
+          <span>PostgreSQL</span>
+          <span>Google App Script</span>
+        </div>
+        <div class="tecnologias">
+          <strong><i class="fas fa-lightbulb"></i> Insights clave:</strong> Análisis de tendencias operativas, rentabilidad por ruta, identificación de riesgos logísticos y optimización de flota.
+        </div>
+      </div>
+    </article>
+
+    <!-- PROYECTO 2: Análisis de ventas -->
+    <article class="proyecto">
+      <div class="proyecto-header">
+        <h2>Proyecto 2: Análisis de ventas</h2>
+        <p>Dashboard interactivo de ventas con KPIs, tendencias estacionales y proyecciones</p>
+      </div>
+      <div class="proyecto-content">
+        <div class="iframe-container">
+          <iframe 
+            src="https://app.powerbi.com/view?r=eyJrIjoiYjRmMGM1ZTktZGQ5MS00ZjM1LWIzZjMtNDg5MTA4YjQ5OWI4IiwidCI6IjI1MGY3NmU3LTYxMDUtNDJlMy04MmQwLWJlN2M0NjBhZWE1OSIsImMiOjR9"
+            title="Dashboard Power BI - Análisis de ventas con KPIs"
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="tecnologias">
+          <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
+          <span>Power BI</span>
+          <span>DAX</span>
+          <span>Power Query</span>
+          <span>SQL Server</span>
+        </div>
+        <div class="tecnologias">
+          <strong><i class="fas fa-chart-simple"></i> Insights clave:</strong> Análisis de tendencias estacionales, top productos más vendidos, proyección de ventas a 12 meses y segmentación de clientes.
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="contacto">
+      <p><i class="fas fa-envelope"></i> <a href="mailto:edermoriel@hotmail.com">edermoriel@hotmail.com</a></p>
+      <p><i class="fas fa-phone-alt"></i> Teléfono: 0963156344</p>
+      <p><i class="fas fa-map-marker-alt"></i> Guayaquil, Ecuador</p>
+      <div class="social-links">
+        <a href="https://github.com/MorielEder" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/eder-moriel-66a002272/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:edermoriel@hotmail.com" aria-label="Correo electrónico"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p>Portafolio | Eder Steven Moriel Perero © 2025</p>
+    </div>
+  </footer>
+</body>
+</html>
