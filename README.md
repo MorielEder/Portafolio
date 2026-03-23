@@ -7,11 +7,7 @@ Portafolio de  **Análisis de Datos**, **Sistemas de Información** y visualizac
 - [Acerca del Proyecto](#acerca-del-proyecto)
 - [Características](#características)
 - [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Estructura del Proyecto](#estructura-del-proyecto)
 - [Proyectos Destacados](#proyectos-destacados)
-- [Instalación Local](#instalación-local)
-- [Contacto](#contacto)
-- [Licencia](#licencia)
 
 ---
 
@@ -63,3 +59,12 @@ El diseño combina una paleta de colores profesional en tonos verdes (inspirada 
 ### Herramientas
 - **Git & GitHub** - Control de versiones
 - **Google App Script** - Automatización de procesos
+
+
+## Proyectos Destacados en Power BI
+
+### 1. Análisis de Datos Históricos - Transporte de Carga Pesada
+### 2. Análisis de Ventas de productos
+### 3. Análisis de Financiero de ejemplos de bancos.
+### 4. Productividad de productos por Operarios.
+### 5. Resumen Financiero de una tienda.
