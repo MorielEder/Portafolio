@@ -8,7 +8,7 @@
   <meta name="description" content="Portafolio profesional de Ing. Eder Steven Moriel Perero - Analista de Datos & Soporte Técnico Especializado">
   <meta name="author" content="Eder Steven Moriel Perero">
   <meta name="robots" content="index, follow">
-  <title>Ing. Eder Moriel | Portafolio</title>
+  <title>Eder Moriel | Analista de Datos & Soporte Técnico</title>
 
   <!-- Microsoft Clarity - Análisis de comportamiento -->
   <script type="text/javascript">
@@ -184,6 +184,10 @@
       border-radius: 3px;
     }
 
+    .section-title.soporte-title::after {
+      background: #ffc107;
+    }
+
     .grid-2cols {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -344,6 +348,65 @@
       display: block;
     }
 
+    /* ========== INTRODUCCIÓN DE APARTADOS ========== */
+    .tab-intro {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-md);
+      border-left: 5px solid var(--primary-light);
+    }
+
+    .tab-intro.soporte-intro {
+      border-left-color: #ffc107;
+    }
+
+    .tab-intro h3 {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .tab-intro h3 i {
+      color: var(--primary-light);
+    }
+
+    .tab-intro.soporte-intro h3 i {
+      color: #ffc107;
+    }
+
+    .tab-intro p {
+      color: var(--gray-dark);
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+    }
+
+    .tab-intro .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .tab-intro .tools-grid span {
+      display: inline-block;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .tab-intro.soporte-intro .tools-grid span {
+      background: #fff3cd;
+      color: #856404;
+    }
+
     /* ========== PROYECTOS ========== */
     .proyecto {
       background: white;
@@ -451,7 +514,31 @@
       color: #000;
     }
 
-    /* ========== SECCIÓN SOPORTE - SERVICIOS ========== */
+    .proyecto-desc {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      background: #f0f7ff;
+      border-radius: var(--radius-md);
+      border-left: 4px solid #2196F3;
+    }
+
+    .proyecto-desc.soporte-desc {
+      background: #fff8e1;
+      border-left-color: #ffc107;
+    }
+
+    .proyecto-desc strong {
+      color: var(--primary-dark);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .proyecto-desc p {
+      color: var(--gray-dark);
+      font-size: 0.95rem;
+    }
+
+    /* ========== SOPORTE - SERVICIOS ========== */
     .soporte-services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -539,6 +626,18 @@
       color: var(--gray-dark);
     }
 
+    .cert-item .cert-soporte i {
+      color: #ffc107;
+    }
+
+    .cert-item .cert-soporte {
+      border-color: #ffc107;
+    }
+
+    .cert-item .cert-soporte:hover {
+      border-color: #ffc107;
+    }
+
     /* ========== FOOTER ========== */
     footer {
       background: var(--primary-dark);
@@ -611,7 +710,7 @@
       .container {
         padding: 2rem 1rem;
       }
-      .sobre-mi, .certificaciones {
+      .sobre-mi, .certificaciones, .tab-intro {
         padding: 1.5rem;
       }
       .proyecto-header h2 {
@@ -656,9 +755,9 @@
   <!-- ========== HEADER ========== -->
   <header class="hero">
     <div class="hero-content">
-      <h2>Ing. Sistemas de Informacion</h2>
       <h1>Eder Steven Moriel Perero</h1>
-      <p class="subtitle">📊 Analista de Datos & Soporte Técnico 🛠️</p>
+      <p class="subtitle">📊 Analista de Datos & 🛠️ Soporte Técnico Especializado</p>
+      <p class="tagline">Transformando datos en decisiones · Solucionando problemas con tecnología</p>
       <div class="hero-badges">
         <span><i class="fas fa-chart-line"></i> Power BI</span>
         <span><i class="fab fa-python"></i> Python</span>
@@ -743,6 +842,29 @@
 
       <!-- ===== CONTENIDO: ANÁLISIS DE DATOS ===== -->
       <div id="tab-datos" class="tab-content active" role="tabpanel">
+        <!-- INTRODUCCIÓN ANÁLISIS DE DATOS -->
+        <div class="tab-intro">
+          <h3><i class="fas fa-chart-line"></i> Análisis de Datos</h3>
+          <p>
+            Como Analista de Datos, me especializo en transformar datos brutos en información valiosa 
+            que impulse la toma de decisiones estratégicas. Mi enfoque combina habilidades técnicas con 
+            una comprensión profunda del negocio para entregar insights accionables.
+          </p>
+          <p>
+            <strong>Mi stack tecnológico incluye:</strong>
+          </p>
+          <div class="tools-grid">
+            <span><i class="fas fa-database"></i> PostgreSQL</span>
+            <span><i class="fas fa-database"></i> SQL Server</span>
+            <span><i class="fab fa-python"></i> Python</span>
+            <span><i class="fas fa-exchange-alt"></i> ETL</span>
+            <span><i class="fas fa-chart-pie"></i> Power BI</span>
+            <span><i class="fas fa-file-excel"></i> Excel</span>
+            <span><i class="fas fa-code"></i> Power Query</span>
+            <span><i class="fas fa-code"></i> DAX</span>
+          </div>
+        </div>
+
         <!-- Proyecto 1 -->
         <article class="proyecto">
           <div class="proyecto-header datos-header">
@@ -757,6 +879,12 @@
                 title="Dashboard Power BI - Análisis de datos históricos de transporte"
                 loading="lazy">
               </iframe>
+            </div>
+            <div class="proyecto-desc">
+              <strong><i class="fas fa-info-circle"></i> Descripción del Proyecto:</strong>
+              <p>Este dashboard fue desarrollado para el área operativa de una empresa de transporte de carga pesada. 
+              Permite visualizar tendencias históricas de operaciones, identificar rutas más rentables y detectar 
+              riesgos logísticos mediante un análisis de roles implementado con Google App Script.</p>
             </div>
             <div class="tecnologias">
               <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
@@ -787,6 +915,12 @@
                 loading="lazy">
               </iframe>
             </div>
+            <div class="proyecto-desc">
+              <strong><i class="fas fa-info-circle"></i> Descripción del Proyecto:</strong>
+              <p>Dashboard completo de ventas que integra KPIs clave como ingresos totales, margen de beneficio, 
+              ticket promedio y conversión. Incluye análisis de tendencias estacionales, ranking de productos 
+              y proyecciones a 12 meses utilizando modelos predictivos en Power BI.</p>
+            </div>
             <div class="tecnologias">
               <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
               <span>Power BI</span>
@@ -814,6 +948,12 @@
                 title="Dashboard Power BI - Análisis financiero"
                 loading="lazy">
               </iframe>
+            </div>
+            <div class="proyecto-desc">
+              <strong><i class="fas fa-info-circle"></i> Descripción del Proyecto:</strong>
+              <p>Dashboard financiero que permite comparar el rendimiento de diferentes entidades bancarias 
+              mediante tooltips interactivos. Incluye análisis de rentabilidad, eficiencia operativa y 
+              evaluación de productos financieros.</p>
             </div>
             <div class="tecnologias">
               <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
@@ -843,6 +983,12 @@
                 loading="lazy">
               </iframe>
             </div>
+            <div class="proyecto-desc">
+              <strong><i class="fas fa-info-circle"></i> Descripción del Proyecto:</strong>
+              <p>Dashboard enfocado en medir y mejorar la productividad operativa. Permite analizar el 
+              rendimiento individual por operador, identificar cuellos de botella en el proceso productivo 
+              y proyectar la producción a 12 meses mediante análisis de tendencias.</p>
+            </div>
             <div class="tecnologias">
               <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
               <span>Power BI</span>
@@ -871,6 +1017,12 @@
                 loading="lazy">
               </iframe>
             </div>
+            <div class="proyecto-desc">
+              <strong><i class="fas fa-info-circle"></i> Descripción del Proyecto:</strong>
+              <p>Dashboard financiero diseñado para una tienda minorista que permite segmentar el análisis 
+              por categorías de productos (muebles, tecnología, oficina). Incluye análisis de rentabilidad, 
+              ranking de productos y proyecciones de ventas.</p>
+            </div>
             <div class="tecnologias">
               <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
               <span>Power BI</span>
@@ -887,6 +1039,39 @@
 
       <!-- ===== CONTENIDO: SOPORTE TÉCNICO ===== -->
       <div id="tab-soporte" class="tab-content" role="tabpanel">
+        <!-- INTRODUCCIÓN SOPORTE TÉCNICO -->
+        <div class="tab-intro soporte-intro">
+          <h3><i class="fas fa-tools" style="color: #ffc107;"></i> Soporte Técnico Especializado</h3>
+          <p>
+            Como profesional de Soporte Técnico, me enfoco en garantizar la continuidad operativa de las 
+            organizaciones mediante soluciones rápidas y efectivas. Mi experiencia abarca desde el soporte 
+            presencial y remoto hasta la gestión de infraestructura tecnológica.
+          </p>
+          <p>
+            <strong>Mis servicios incluyen:</strong>
+          </p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; color: var(--gray-dark);">
+            <li>✅ Brindar soporte técnico presencial y remoto a usuarios</li>
+            <li>✅ Resolver incidentes de hardware, software y conectividad</li>
+            <li>✅ Instalar y configurar PCs, notebooks, impresoras y otros dispositivos</li>
+            <li>✅ Gestionar usuarios, accesos y cuentas de Microsoft 365</li>
+            <li>✅ Realizar mantenimiento y actualizaciones de equipos</li>
+            <li>✅ Dar soporte básico de redes, servidores y respaldos</li>
+          </ul>
+          <p style="margin-top: 0.75rem;">
+            <strong>Herramientas y tecnologías que manejo:</strong>
+          </p>
+          <div class="tools-grid">
+            <span><i class="fas fa-file-alt"></i> Ofimática (Office 365)</span>
+            <span><i class="fas fa-users-cog"></i> Microsoft 365 Admin</span>
+            <span><i class="fas fa-network-wired"></i> Redes LAN/WAN</span>
+            <span><i class="fas fa-server"></i> Windows Server</span>
+            <span><i class="fas fa-database"></i> Active Directory</span>
+            <span><i class="fas fa-cloud"></i> Backups</span>
+            <span><i class="fas fa-ticket-alt"></i> Help Desk</span>
+          </div>
+        </div>
+
         <!-- Servicios de Soporte -->
         <div class="soporte-services">
           <div class="service-card">
@@ -931,6 +1116,12 @@
                 <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">Apache</span>
               </div>
             </div>
+            <div class="proyecto-desc soporte-desc">
+              <strong><i class="fas fa-info-circle"></i> Descripción del Proyecto:</strong>
+              <p>Implementación de un sistema de Help Desk utilizando OSTicket para una empresa mediana. 
+              El sistema permite gestionar incidencias de manera eficiente, priorizar tickets según urgencia, 
+              realizar seguimiento y generar reportes de cumplimiento de SLA.</p>
+            </div>
             <div class="tecnologias soporte-tech">
               <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
               <span class="tech-soporte">OSTicket</span>
@@ -963,6 +1154,12 @@
                 <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">Active Directory</span>
                 <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">Backup</span>
               </div>
+            </div>
+            <div class="proyecto-desc soporte-desc">
+              <strong><i class="fas fa-info-circle"></i> Descripción del Proyecto:</strong>
+              <p>Lideré el proyecto de migración de 50+ equipos a Windows 11, incluyendo la actualización 
+              de hardware, migración de datos, configuración de Active Directory y capacitación al personal 
+              para garantizar una transición sin problemas.</p>
             </div>
             <div class="tecnologias soporte-tech">
               <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
@@ -997,6 +1194,12 @@
                 <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">Firewall</span>
               </div>
             </div>
+            <div class="proyecto-desc soporte-desc">
+              <strong><i class="fas fa-info-circle"></i> Descripción del Proyecto:</strong>
+              <p>Implementé un plan integral de seguridad que incluye cifrado de discos con BitLocker, 
+              sistema de backups automatizados diarios, configuración de firewall y políticas de acceso 
+              para garantizar la integridad y disponibilidad de la información.</p>
+            </div>
             <div class="tecnologias soporte-tech">
               <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
               <span class="tech-soporte">BitLocker</span>
@@ -1030,6 +1233,11 @@
           <i class="fas fa-certificate"></i>
           <h4>IT Support Professional</h4>
           <p>Google / Coursera</p>
+        </div>
+        <div class="cert-item cert-soporte">
+          <i class="fas fa-certificate" style="color: #ffc107;"></i>
+          <h4>Help Desk</h4>
+          <p>Ecugenuis</p>
         </div>
         <div class="cert-item">
           <i class="fas fa-certificate"></i>
@@ -1074,18 +1282,15 @@
       };
 
       function activateTab(tabId) {
-        // Desactivar todas las pestañas
         tabs.forEach(btn => {
           btn.classList.remove('active', 'active-datos', 'active-soporte');
           btn.setAttribute('aria-selected', 'false');
         });
 
-        // Ocultar todos los contenidos
         Object.values(contents).forEach(content => {
           if (content) content.classList.remove('active');
         });
 
-        // Activar la pestaña seleccionada
         const activeBtn = Array.from(tabs).find(btn => btn.dataset.tab === tabId);
         if (activeBtn) {
           activeBtn.classList.add('active');
@@ -1097,13 +1302,11 @@
           activeBtn.setAttribute('aria-selected', 'true');
         }
 
-        // Mostrar el contenido correspondiente
         if (contents[tabId]) {
           contents[tabId].classList.add('active');
         }
       }
 
-      // Asignar eventos a las pestañas
       tabs.forEach(btn => {
         btn.addEventListener('click', function(e) {
           const tabId = this.dataset.tab;
@@ -1111,7 +1314,6 @@
         });
       });
 
-      // Activar la primera pestaña por defecto (si no hay ninguna activa)
       const hasActive = Array.from(tabs).some(btn => btn.classList.contains('active'));
       if (!hasActive && tabs.length > 0) {
         activateTab('datos');
