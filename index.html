@@ -43,7 +43,9 @@
       --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
       --radius-md: 0.75rem;
       --radius-lg: 1rem;
-      --transition: all 0.25s ease;
+      --transition: all 0.3s ease;
+      --soporte-color: #ffc107;
+      --datos-color: #1e5631;
     }
 
     * {
@@ -63,7 +65,7 @@
     /* ========== HEADER ========== */
     .hero {
       position: relative;
-      min-height: 85vh;
+      min-height: 80vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -106,8 +108,7 @@
       font-weight: 400;
     }
 
-    /* Skills badges mejorados */
-    .skills-badge {
+    .hero-badges {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -115,7 +116,7 @@
       margin-top: 1.5rem;
     }
 
-    .skills-badge span {
+    .hero-badges span {
       background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(8px);
       padding: 0.6rem 1.2rem;
@@ -127,22 +128,22 @@
       cursor: default;
     }
 
-    .skills-badge span:hover {
+    .hero-badges span:hover {
       background: rgba(255, 255, 255, 0.25);
       transform: translateY(-2px);
       border-color: rgba(255, 255, 255, 0.5);
     }
 
-    .skills-badge .badge-soporte {
+    .hero-badges .badge-soporte {
       background: rgba(255, 193, 7, 0.25);
       border-color: rgba(255, 193, 7, 0.4);
     }
 
-    .skills-badge .badge-soporte:hover {
+    .hero-badges .badge-soporte:hover {
       background: rgba(255, 193, 7, 0.4);
     }
 
-    /* ========== CONTAINER PRINCIPAL ========== */
+    /* ========== CONTAINER ========== */
     .container {
       max-width: 1280px;
       margin: 0 auto;
@@ -263,79 +264,84 @@
       margin-bottom: 0.5rem;
     }
 
-    /* ========== NUEVA SECCIÓN: SOPORTE TÉCNICO ========== */
-    .soporte-section {
-      background: white;
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
+    /* ========== PESTAÑAS (TABS) ========== */
+    .tabs-container {
       margin-bottom: 3rem;
+    }
+
+    .tabs-nav {
+      display: flex;
+      gap: 0.5rem;
+      background: white;
+      padding: 0.5rem;
+      border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
-      border-left: 5px solid #ffc107;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
     }
 
-    .soporte-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .soporte-card {
-      background: var(--gray-light);
+    .tab-btn {
+      flex: 1;
+      min-width: 180px;
+      padding: 1rem 1.5rem;
+      border: none;
       border-radius: var(--radius-md);
-      padding: 1.5rem;
-      transition: var(--transition);
-      border: 1px solid var(--gray);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .soporte-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #ffc107, #ff9800);
-    }
-
-    .soporte-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      border-color: #ffc107;
-    }
-
-    .soporte-card h3 {
-      color: var(--primary-dark);
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
-    }
-
-    .soporte-card .icon-soporte {
-      font-size: 2rem;
-      color: #ffc107;
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .soporte-card ul {
-      list-style: none;
-      padding-left: 0;
-      font-size: 0.95rem;
-    }
-
-    .soporte-card ul li {
-      margin-bottom: 0.4rem;
+      cursor: pointer;
+      transition: var(--transition);
+      background: transparent;
+      color: var(--gray-dark);
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
+      gap: 0.75rem;
+      font-family: 'Inter', sans-serif;
     }
 
-    .soporte-card ul li i {
-      color: var(--primary-light);
-      font-size: 0.8rem;
+    .tab-btn i {
+      font-size: 1.2rem;
+    }
+
+    .tab-btn:hover {
+      background: var(--gray-light);
+      transform: translateY(-2px);
+    }
+
+    .tab-btn.active {
+      background: var(--primary-dark);
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+
+    .tab-btn.active-datos {
+      background: var(--primary-dark);
+      color: white;
+    }
+
+    .tab-btn.active-soporte {
+      background: #e6a800;
+      color: white;
+    }
+
+    .tab-btn .badge-count {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.1rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+    }
+
+    .tab-btn.active .badge-count {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeInUp 0.4s ease forwards;
+    }
+
+    .tab-content.active {
+      display: block;
     }
 
     /* ========== PROYECTOS ========== */
@@ -343,7 +349,7 @@
       background: white;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       overflow: hidden;
       transition: var(--transition);
     }
@@ -354,9 +360,16 @@
     }
 
     .proyecto-header {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: white;
       padding: 1.5rem 2rem;
+      color: white;
+    }
+
+    .proyecto-header.datos-header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    }
+
+    .proyecto-header.soporte-header {
+      background: linear-gradient(135deg, #b8860b, #ffc107);
     }
 
     .proyecto-header .badge-tipo {
@@ -371,13 +384,8 @@
       margin-bottom: 0.5rem;
     }
 
-    .proyecto-header .badge-tipo.soporte {
-      background: #ffc107;
-      color: #000;
-    }
-
     .proyecto-header h2 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       margin-bottom: 0.3rem;
       font-weight: 700;
     }
@@ -416,6 +424,10 @@
       border-left: 4px solid var(--primary-light);
     }
 
+    .tecnologias.soporte-tech {
+      border-left-color: #ffc107;
+    }
+
     .tecnologias strong {
       color: var(--primary-dark);
       display: block;
@@ -439,6 +451,46 @@
       color: #000;
     }
 
+    /* ========== SECCIÓN SOPORTE - SERVICIOS ========== */
+    .soporte-services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      border-top: 4px solid #ffc107;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card i {
+      font-size: 2.5rem;
+      color: #ffc107;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+    }
+
     /* ========== CERTIFICACIONES ========== */
     .certificaciones {
       background: white;
@@ -450,7 +502,7 @@
 
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1rem;
       margin-top: 1.5rem;
     }
@@ -559,16 +611,16 @@
       .container {
         padding: 2rem 1rem;
       }
-      .sobre-mi, .soporte-section, .certificaciones {
+      .sobre-mi, .certificaciones {
         padding: 1.5rem;
       }
       .proyecto-header h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
       .proyecto-content {
         padding: 1rem;
       }
-      .skills-badge span {
+      .hero-badges span {
         font-size: 0.75rem;
         padding: 0.4rem 0.8rem;
       }
@@ -576,6 +628,14 @@
         min-height: 70vh;
       }
       .info-cards {
+        flex-direction: column;
+      }
+      .tab-btn {
+        min-width: 120px;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+      }
+      .tabs-nav {
         flex-direction: column;
       }
     }
@@ -593,20 +653,20 @@
 </head>
 
 <body>
+  <!-- ========== HEADER ========== -->
   <header class="hero">
     <div class="hero-content">
       <h1>Eder Steven Moriel Perero</h1>
       <p class="subtitle">📊 Analista de Datos & 🛠️ Soporte Técnico Especializado</p>
       <p class="tagline">Transformando datos en decisiones · Solucionando problemas con tecnología</p>
-      <div class="skills-badge">
+      <div class="hero-badges">
         <span><i class="fas fa-chart-line"></i> Power BI</span>
         <span><i class="fab fa-python"></i> Python</span>
         <span><i class="fas fa-database"></i> SQL Server</span>
         <span><i class="fab fa-github"></i> GitHub</span>
-        <span><i class="fas fa-tasks"></i> Scrum/Kanban</span>
         <span class="badge-soporte"><i class="fas fa-desktop"></i> Soporte TI</span>
         <span class="badge-soporte"><i class="fas fa-network-wired"></i> Redes</span>
-        <span><i class="fab fa-html5"></i> HTML/CSS</span>
+        <span><i class="fas fa-tasks"></i> Scrum/Kanban</span>
       </div>
     </div>
   </header>
@@ -667,197 +727,398 @@
       </div>
     </section>
 
-    <!-- ========== NUEVA SECCIÓN: SOPORTE TÉCNICO ========== -->
-    <section class="soporte-section" aria-label="Servicios de soporte técnico">
-      <h2 class="section-title"><i class="fas fa-tools" style="color: #ffc107;"></i> Soporte Técnico Especializado</h2>
-      <p style="margin-top: 0.5rem; color: var(--gray-dark);">
-        Más allá del análisis de datos, ofrezco soluciones integrales en infraestructura tecnológica 
-        y soporte a usuarios para garantizar la continuidad operativa.
-      </p>
-      <div class="soporte-grid">
-        <div class="soporte-card">
-          <span class="icon-soporte"><i class="fas fa-desktop"></i></span>
-          <h3>Mantenimiento de Equipos</h3>
-          <ul>
-            <li><i class="fas fa-check"></i> Diagnóstico y reparación de hardware</li>
-            <li><i class="fas fa-check"></i> Instalación y configuración de SO</li>
-            <li><i class="fas fa-check"></i> Optimización de rendimiento</li>
-          </ul>
+    <!-- ========== PESTAÑAS (TABS) ========== -->
+    <div class="tabs-container">
+      <!-- Navegación de pestañas -->
+      <nav class="tabs-nav" role="tablist">
+        <button class="tab-btn active active-datos" data-tab="datos" role="tab" aria-selected="true">
+          <i class="fas fa-chart-line"></i> Análisis de Datos
+          <span class="badge-count">5</span>
+        </button>
+        <button class="tab-btn" data-tab="soporte" role="tab" aria-selected="false">
+          <i class="fas fa-tools"></i> Soporte Técnico
+          <span class="badge-count">3</span>
+        </button>
+      </nav>
+
+      <!-- ===== CONTENIDO: ANÁLISIS DE DATOS ===== -->
+      <div id="tab-datos" class="tab-content active" role="tabpanel">
+        <!-- Proyecto 1 -->
+        <article class="proyecto">
+          <div class="proyecto-header datos-header">
+            <span class="badge-tipo"><i class="fas fa-chart-line"></i> Análisis de Datos</span>
+            <h2>Análisis de datos históricos de transporte</h2>
+            <p>Dashboard interactivo para el área operativa de transporte de carga pesada</p>
+          </div>
+          <div class="proyecto-content">
+            <div class="iframe-container">
+              <iframe 
+                src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMWIyNDYyMTYtM2IyOC00MGZmLTg5YTUtYzY1MTcyZDlhNzFlIiwidCI6IjI1MGY3NmU3LTYxMDUtNDJlMy04MmQwLWJlN2M0NjBhZWE1OSIsImMiOjR9"
+                title="Dashboard Power BI - Análisis de datos históricos de transporte"
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="tecnologias">
+              <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
+              <span>Power BI</span>
+              <span>DAX</span>
+              <span>Power Query</span>
+              <span>PostgreSQL</span>
+              <span>Google App Script</span>
+            </div>
+            <div class="tecnologias">
+              <strong><i class="fas fa-lightbulb"></i> Insights clave:</strong> Análisis de tendencias operativas, rentabilidad por ruta, identificación de riesgos logísticos.
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 2 -->
+        <article class="proyecto">
+          <div class="proyecto-header datos-header">
+            <span class="badge-tipo"><i class="fas fa-chart-line"></i> Análisis de Datos</span>
+            <h2>Análisis de ventas con KPIs</h2>
+            <p>Dashboard interactivo de ventas con KPIs, tendencias estacionales y proyecciones</p>
+          </div>
+          <div class="proyecto-content">
+            <div class="iframe-container">
+              <iframe 
+                src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMTUzMTVhMjgtYzM0YS00M2ViLWE2MDMtNmE2NGJhNzJjZWM2IiwidCI6IjI1MGY3NmU3LTYxMDUtNDJlMy04MmQwLWJlN2M0NjBhZWE1OSIsImMiOjR9"
+                title="Dashboard Power BI - Análisis de ventas con KPIs"
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="tecnologias">
+              <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
+              <span>Power BI</span>
+              <span>DAX</span>
+              <span>Power Query</span>
+              <span>SQL Server</span>
+            </div>
+            <div class="tecnologias">
+              <strong><i class="fas fa-chart-simple"></i> Insights clave:</strong> Análisis de tendencias estacionales, top productos más vendidos, proyección de ventas a 12 meses y segmentación de clientes.
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 3 -->
+        <article class="proyecto">
+          <div class="proyecto-header datos-header">
+            <span class="badge-tipo"><i class="fas fa-chart-line"></i> Análisis de Datos</span>
+            <h2>Análisis financiero con tooltips</h2>
+            <p>Dashboard financiero interactivo con tooltips para exploración de datos</p>
+          </div>
+          <div class="proyecto-content">
+            <div class="iframe-container">
+              <iframe 
+                src="https://app.fabric.microsoft.com/view?r=eyJrIjoiYjJlYWVlNzYtZDUxZC00NmE5LTljNzMtNzBlZmNjMDdjYTU4IiwidCI6IjI1MGY3NmU3LTYxMDUtNDJlMy04MmQwLWJlN2M0NjBhZWE1OSIsImMiOjR9"
+                title="Dashboard Power BI - Análisis financiero"
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="tecnologias">
+              <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
+              <span>Power BI</span>
+              <span>Tooltips</span>
+              <span>Power Query</span>
+              <span>SQL Server</span>
+            </div>
+            <div class="tecnologias">
+              <strong><i class="fas fa-chart-simple"></i> Insights clave:</strong> Análisis financiero por diferentes entidades bancarias y comparativas de rendimiento.
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 4 -->
+        <article class="proyecto">
+          <div class="proyecto-header datos-header">
+            <span class="badge-tipo"><i class="fas fa-chart-line"></i> Análisis de Datos</span>
+            <h2>Análisis de productividad operativa</h2>
+            <p>Dashboard de productividad por operador y proyección de producción</p>
+          </div>
+          <div class="proyecto-content">
+            <div class="iframe-container">
+              <iframe 
+                src="https://app.fabric.microsoft.com/view?r=eyJrIjoiZWRmN2YzYTctMmY1Yy00MjIwLTljMmUtZjk3YWM0M2RkMjBiIiwidCI6IjI1MGY3NmU3LTYxMDUtNDJlMy04MmQwLWJlN2M0NjBhZWE1OSIsImMiOjR9"
+                title="Dashboard Power BI - Análisis de productividad"
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="tecnologias">
+              <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
+              <span>Power BI</span>
+              <span>DAX</span>
+              <span>Power Query</span>
+              <span>SQL Server</span>
+            </div>
+            <div class="tecnologias">
+              <strong><i class="fas fa-chart-simple"></i> Insights clave:</strong> Análisis de productividad por operador, proyección de productos realizados a 12 meses, identificación de cuellos de botella.
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 5 -->
+        <article class="proyecto">
+          <div class="proyecto-header datos-header">
+            <span class="badge-tipo"><i class="fas fa-chart-line"></i> Análisis de Datos</span>
+            <h2>Resumen financiero de tienda</h2>
+            <p>Dashboard financiero para tienda con segmentación de productos</p>
+          </div>
+          <div class="proyecto-content">
+            <div class="iframe-container">
+              <iframe 
+                src="https://app.fabric.microsoft.com/view?r=eyJrIjoiNDI2MzdlMmEtNDQyOC00YTAzLWI2MDEtZmZjZTkwNTZkMjlhIiwidCI6IjI1MGY3NmU3LTYxMDUtNDJlMy04MmQwLWJlN2M0NjBhZWE1OSIsImMiOjR9"
+                title="Dashboard Power BI - Resumen financiero tienda"
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="tecnologias">
+              <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
+              <span>Power BI</span>
+              <span>DAX</span>
+              <span>Power Query</span>
+              <span>SQL Server</span>
+            </div>
+            <div class="tecnologias">
+              <strong><i class="fas fa-chart-simple"></i> Insights clave:</strong> Análisis de tendencias de ventas, top productos más vendidos, proyección de ventas a 12 meses y segmentación de productos (muebles, tecnología, oficina).
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- ===== CONTENIDO: SOPORTE TÉCNICO ===== -->
+      <div id="tab-soporte" class="tab-content" role="tabpanel">
+        <!-- Servicios de Soporte -->
+        <div class="soporte-services">
+          <div class="service-card">
+            <i class="fas fa-desktop"></i>
+            <h3>Mantenimiento de Equipos</h3>
+            <p>Diagnóstico, reparación y optimización de hardware y software</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-network-wired"></i>
+            <h3>Redes y Conectividad</h3>
+            <p>Configuración de routers, switches y solución de problemas de red</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-users-cog"></i>
+            <h3>Soporte a Usuarios</h3>
+            <p>Mesa de ayuda, capacitación y gestión de incidencias</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <h3>Infraestructura TI</h3>
+            <p>Administración de servidores, backups y virtualización</p>
+          </div>
         </div>
-        <div class="soporte-card">
-          <span class="icon-soporte"><i class="fas fa-network-wired"></i></span>
-          <h3>Redes y Conectividad</h3>
-          <ul>
-            <li><i class="fas fa-check"></i> Configuración de routers y switches</li>
-            <li><i class="fas fa-check"></i> Solución de problemas de red</li>
-            <li><i class="fas fa-check"></i> Seguridad perimetral básica</li>
-          </ul>
+
+        <!-- Proyecto de Soporte 1 -->
+        <article class="proyecto">
+          <div class="proyecto-header soporte-header">
+            <span class="badge-tipo"><i class="fas fa-tools"></i> Soporte Técnico</span>
+            <h2>Implementación de Help Desk</h2>
+            <p>Configuración y gestión de un sistema de mesa de ayuda para empresa mediana</p>
+          </div>
+          <div class="proyecto-content">
+            <div style="background: var(--gray-light); padding: 2rem; border-radius: var(--radius-md); text-align: center; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+              <i class="fas fa-ticket-alt" style="font-size: 3rem; color: #ffc107; margin-bottom: 1rem;"></i>
+              <h3 style="color: var(--primary-dark);">Sistema de Tickets Implementado</h3>
+              <p style="color: var(--gray-dark); max-width: 500px; margin: 0.5rem auto;">
+                Gestión de incidencias con priorización, seguimiento y reportes de SLA
+              </p>
+              <div style="margin-top: 1rem;">
+                <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">OSTicket</span>
+                <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">MySQL</span>
+                <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">Apache</span>
+              </div>
+            </div>
+            <div class="tecnologias soporte-tech">
+              <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
+              <span class="tech-soporte">OSTicket</span>
+              <span class="tech-soporte">MySQL</span>
+              <span class="tech-soporte">Apache</span>
+              <span class="tech-soporte">Windows Server</span>
+            </div>
+            <div class="tecnologias soporte-tech">
+              <strong><i class="fas fa-check-circle"></i> Resultados:</strong> Reducción del 40% en tiempo de respuesta, seguimiento efectivo de incidencias, reportes mensuales de satisfacción.
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto de Soporte 2 -->
+        <article class="proyecto">
+          <div class="proyecto-header soporte-header">
+            <span class="badge-tipo"><i class="fas fa-tools"></i> Soporte Técnico</span>
+            <h2>Migración y Actualización de Infraestructura</h2>
+            <p>Actualización de equipos y migración a Windows 11 en organización de 50+ usuarios</p>
+          </div>
+          <div class="proyecto-content">
+            <div style="background: var(--gray-light); padding: 2rem; border-radius: var(--radius-md); text-align: center; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+              <i class="fas fa-server" style="font-size: 3rem; color: #ffc107; margin-bottom: 1rem;"></i>
+              <h3 style="color: var(--primary-dark);">Infraestructura Modernizada</h3>
+              <p style="color: var(--gray-dark); max-width: 500px; margin: 0.5rem auto;">
+                Actualización de 50+ equipos, migración de datos y capacitación a usuarios
+              </p>
+              <div style="margin-top: 1rem;">
+                <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">Windows 11</span>
+                <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">Active Directory</span>
+                <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">Backup</span>
+              </div>
+            </div>
+            <div class="tecnologias soporte-tech">
+              <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
+              <span class="tech-soporte">Windows 11</span>
+              <span class="tech-soporte">Active Directory</span>
+              <span class="tech-soporte">Acronis Backup</span>
+              <span class="tech-soporte">Redes LAN</span>
+            </div>
+            <div class="tecnologias soporte-tech">
+              <strong><i class="fas fa-check-circle"></i> Resultados:</strong> Cero pérdida de datos, mejora del 60% en rendimiento, capacitación exitosa al 100% del personal.
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto de Soporte 3 -->
+        <article class="proyecto">
+          <div class="proyecto-header soporte-header">
+            <span class="badge-tipo"><i class="fas fa-tools"></i> Soporte Técnico</span>
+            <h2>Seguridad y Respaldo de Datos</h2>
+            <p>Implementación de políticas de seguridad y sistema de respaldos automatizados</p>
+          </div>
+          <div class="proyecto-content">
+            <div style="background: var(--gray-light); padding: 2rem; border-radius: var(--radius-md); text-align: center; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+              <i class="fas fa-shield-alt" style="font-size: 3rem; color: #ffc107; margin-bottom: 1rem;"></i>
+              <h3 style="color: var(--primary-dark);">Seguridad Integral</h3>
+              <p style="color: var(--gray-dark); max-width: 500px; margin: 0.5rem auto;">
+                Políticas de seguridad, backups diarios y plan de recuperación ante desastres
+              </p>
+              <div style="margin-top: 1rem;">
+                <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">BitLocker</span>
+                <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">Backup Automatizado</span>
+                <span class="tech-soporte" style="display: inline-block; background: #ffc107; color: #000; padding: 0.25rem 0.8rem; border-radius: 30px; font-size: 0.75rem; font-weight: 500; margin: 0.25rem;">Firewall</span>
+              </div>
+            </div>
+            <div class="tecnologias soporte-tech">
+              <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
+              <span class="tech-soporte">BitLocker</span>
+              <span class="tech-soporte">Veeam Backup</span>
+              <span class="tech-soporte">Firewall</span>
+              <span class="tech-soporte">Active Directory</span>
+            </div>
+            <div class="tecnologias soporte-tech">
+              <strong><i class="fas fa-check-circle"></i> Resultados:</strong> 100% de datos respaldados diariamente, cero incidentes de seguridad en 6 meses, tiempo de recuperación reducido a 2 horas.
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ========== CERTIFICACIONES ========== -->
+    <section class="certificaciones">
+      <h2 class="section-title">Certificaciones y Formación</h2>
+      <div class="cert-grid">
+        <div class="cert-item">
+          <i class="fas fa-certificate"></i>
+          <h4>Power BI Data Analyst</h4>
+          <p>Microsoft (En curso)</p>
         </div>
-        <div class="soporte-card">
-          <span class="icon-soporte"><i class="fas fa-users-cog"></i></span>
-          <h3>Soporte a Usuarios</h3>
-          <ul>
-            <li><i class="fas fa-check"></i> Mesa de ayuda (Help Desk)</li>
-            <li><i class="fas fa-check"></i> Capacitación a usuarios</li>
-            <li><i class="fas fa-check"></i> Gestión de incidencias</li>
-          </ul>
+        <div class="cert-item">
+          <i class="fas fa-certificate"></i>
+          <h4>Python for Data Science</h4>
+          <p>IBM / Coursera</p>
         </div>
-        <div class="soporte-card">
-          <span class="icon-soporte"><i class="fas fa-cloud-upload-alt"></i></span>
-          <h3>Infraestructura TI</h3>
-          <ul>
-            <li><i class="fas fa-check"></i> Administración de servidores</li>
-            <li><i class="fas fa-check"></i> Backups y recuperación</li>
-            <li><i class="fas fa-check"></i> Virtualización básica</li>
-          </ul>
+        <div class="cert-item">
+          <i class="fas fa-certificate"></i>
+          <h4>IT Support Professional</h4>
+          <p>Google / Coursera</p>
+        </div>
+        <div class="cert-item">
+          <i class="fas fa-certificate"></i>
+          <h4>SQL Server</h4>
+          <p>Universidad de Guayaquil</p>
+        </div>
+        <div class="cert-item">
+          <i class="fas fa-certificate"></i>
+          <h4>Scrum Fundamentals</h4>
+          <p>SCRUMstudy</p>
         </div>
       </div>
     </section>
 
-    <!-- ========== PROYECTOS DE ANÁLISIS DE DATOS ========== -->
-    <!-- Proyecto 1 -->
-    <article class="proyecto">
-      <div class="proyecto-header">
-        <span class="badge-tipo"><i class="fas fa-chart-line"></i> Análisis de Datos</span>
-        <h2>Análisis de datos históricos de transporte</h2>
-        <p>Dashboard interactivo para el área operativa de transporte de carga pesada</p>
-      </div>
-      <div class="proyecto-content">
-        <div class="iframe-container">
-          <iframe 
-            src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMWIyNDYyMTYtM2IyOC00MGZmLTg5YTUtYzY1MTcyZDlhNzFlIiwidCI6IjI1MGY3NmU3LTYxMDUtNDJlMy04MmQwLWJlN2M0NjBhZWE1OSIsImMiOjR9"
-            title="Dashboard Power BI - Análisis de datos históricos de transporte"
-            loading="lazy">
-          </iframe>
-        </div>
-        <div class="tecnologias">
-          <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
-          <span>Power BI</span>
-          <span>DAX</span>
-          <span>Power Query</span>
-          <span>PostgreSQL</span>
-          <span>Google App Script</span>
-        </div>
-        <div class="tecnologias">
-          <strong><i class="fas fa-lightbulb"></i> Insights clave:</strong> Análisis de tendencias operativas, rentabilidad por ruta, identificación de riesgos logísticos.
-        </div>
-      </div>
-    </article>
+  </main>
 
-    <!-- Proyecto 2 -->
-    <article class="proyecto">
-      <div class="proyecto-header">
-        <span class="badge-tipo"><i class="fas fa-chart-line"></i> Análisis de Datos</span>
-        <h2>Análisis de ventas con KPIs</h2>
-        <p>Dashboard interactivo de ventas con KPIs, tendencias estacionales y proyecciones</p>
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="contacto">
+      <p><i class="fas fa-envelope"></i> <a href="mailto:edermoriel@hotmail.com">edermoriel@hotmail.com</a></p>
+      <p><i class="fas fa-phone-alt"></i> Teléfono: 0963156344</p>
+      <p><i class="fas fa-map-marker-alt"></i> Guayaquil, Ecuador</p>
+      <div class="social-links">
+        <a href="https://github.com/MorielEder" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/eder-moriel-66a002272/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:edermoriel@hotmail.com" aria-label="Correo electrónico"><i class="fas fa-envelope"></i></a>
       </div>
-      <div class="proyecto-content">
-        <div class="iframe-container">
-          <iframe 
-            src="https://app.fabric.microsoft.com/view?r=eyJrIjoiMTUzMTVhMjgtYzM0YS00M2ViLWE2MDMtNmE2NGJhNzJjZWM2IiwidCI6IjI1MGY3NmU3LTYxMDUtNDJlMy04MmQwLWJlN2M0NjBhZWE1OSIsImMiOjR9"
-            title="Dashboard Power BI - Análisis de ventas con KPIs"
-            loading="lazy">
-          </iframe>
-        </div>
-        <div class="tecnologias">
-          <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
-          <span>Power BI</span>
-          <span>DAX</span>
-          <span>Power Query</span>
-          <span>SQL Server</span>
-        </div>
-        <div class="tecnologias">
-          <strong><i class="fas fa-chart-simple"></i> Insights clave:</strong> Análisis de tendencias estacionales, top productos más vendidos, proyección de ventas a 12 meses y segmentación de clientes.
-        </div>
-      </div>
-    </article>
+      <div class="footer-divider"></div>
+      <p>Portafolio | Eder Steven Moriel Perero © 2025</p>
+    </div>
+  </footer>
 
-    <!-- Proyecto 3 -->
-    <article class="proyecto">
-      <div class="proyecto-header">
-        <span class="badge-tipo"><i class="fas fa-chart-line"></i> Análisis de Datos</span>
-        <h2>Análisis financiero con tooltips</h2>
-        <p>Dashboard financiero interactivo con tooltips para exploración de datos</p>
-      </div>
-      <div class="proyecto-content">
-        <div class="iframe-container">
-          <iframe 
-            src="https://app.fabric.microsoft.com/view?r=eyJrIjoiYjJlYWVlNzYtZDUxZC00NmE5LTljNzMtNzBlZmNjMDdjYTU4IiwidCI6IjI1MGY3NmU3LTYxMDUtNDJlMy04MmQwLWJlN2M0NjBhZWE1OSIsImMiOjR9"
-            title="Dashboard Power BI - Análisis financiero"
-            loading="lazy">
-          </iframe>
-        </div>
-        <div class="tecnologias">
-          <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
-          <span>Power BI</span>
-          <span>Tooltips</span>
-          <span>Power Query</span>
-          <span>SQL Server</span>
-        </div>
-        <div class="tecnologias">
-          <strong><i class="fas fa-chart-simple"></i> Insights clave:</strong> Análisis financiero por diferentes entidades bancarias y comparativas de rendimiento.
-        </div>
-      </div>
-    </article>
+  <!-- ========== JAVASCRIPT PARA PESTAÑAS ========== -->
+  <script>
+    (function() {
+      'use strict';
 
-    <!-- Proyecto 4 -->
-    <article class="proyecto">
-      <div class="proyecto-header">
-        <span class="badge-tipo"><i class="fas fa-chart-line"></i> Análisis de Datos</span>
-        <h2>Análisis de productividad operativa</h2>
-        <p>Dashboard de productividad por operador y proyección de producción</p>
-      </div>
-      <div class="proyecto-content">
-        <div class="iframe-container">
-          <iframe 
-            src="https://app.fabric.microsoft.com/view?r=eyJrIjoiZWRmN2YzYTctMmY1Yy00MjIwLTljMmUtZjk3YWM0M2RkMjBiIiwidCI6IjI1MGY3NmU3LTYxMDUtNDJlMy04MmQwLWJlN2M0NjBhZWE1OSIsImMiOjR9"
-            title="Dashboard Power BI - Análisis de productividad"
-            loading="lazy">
-          </iframe>
-        </div>
-        <div class="tecnologias">
-          <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
-          <span>Power BI</span>
-          <span>DAX</span>
-          <span>Power Query</span>
-          <span>SQL Server</span>
-        </div>
-        <div class="tecnologias">
-          <strong><i class="fas fa-chart-simple"></i> Insights clave:</strong> Análisis de productividad por operador, proyección de productos realizados a 12 meses, identificación de cuellos de botella.
-        </div>
-      </div>
-    </article>
+      const tabs = document.querySelectorAll('.tab-btn');
+      const contents = {
+        datos: document.getElementById('tab-datos'),
+        soporte: document.getElementById('tab-soporte')
+      };
 
-    <!-- Proyecto 5 -->
-    <article class="proyecto">
-      <div class="proyecto-header">
-        <span class="badge-tipo"><i class="fas fa-chart-line"></i> Análisis de Datos</span>
-        <h2>Resumen financiero de tienda</h2>
-        <p>Dashboard financiero para tienda con segmentación de productos</p>
-      </div>
-      <div class="proyecto-content">
-        <div class="iframe-container">
-          <iframe 
-            src="https://app.fabric.microsoft.com/view?r=eyJrIjoiNDI2MzdlMmEtNDQyOC00YTAzLWI2MDEtZmZjZTkwNTZkMjlhIiwidCI6IjI1MGY3NmU3LTYxMDUtNDJlMy04MmQwLWJlN2M0NjBhZWE1OSIsImMiOjR9"
-            title="Dashboard Power BI - Resumen financiero tienda"
-            loading="lazy">
-          </iframe>
-        </div>
-        <div class="tecnologias">
-          <strong><i class="fas fa-code"></i> Tecnologías utilizadas:</strong>
-          <span>Power BI</span>
-          <span>DAX</span>
-          <span>Power Query</span>
-          <span>SQL Server</span>
-        </div>
-        <div class="tecnologias">
-          <strong><i class="fas fa-chart-simple"></i> Insights clave:</strong> Análisis de tendencias de ventas, top productos más vendidos, proyección de ventas a 12 meses y segmentación de productos (muebles, tecnología, oficina).
-        </div>
-      </div>
-    </article>
+      function activateTab(tabId) {
+        // Desactivar todas las pestañas
+        tabs.forEach(btn => {
+          btn.classList.remove('active', 'active-datos', 'active-soporte');
+          btn.setAttribute('aria-selected', 'false');
+        });
 
-    <!-- ========== NUEVO PROYECTO DE SOPORTE TÉCNICO ========== -->
-    <article class="proyecto">
-      <div class="proyecto-header">
-        <span class="badge-tipo soporte"><i class="fas fa-tools"></i> Soporte Técnico</span>
-        <
+        // Ocultar todos los contenidos
+        Object.values(contents).forEach(content => {
+          if (content) content.classList.remove('active');
+        });
+
+        // Activar la pestaña seleccionada
+        const activeBtn = Array.from(tabs).find(btn => btn.dataset.tab === tabId);
+        if (activeBtn) {
+          activeBtn.classList.add('active');
+          if (tabId === 'datos') {
+            activeBtn.classList.add('active-datos');
+          } else if (tabId === 'soporte') {
+            activeBtn.classList.add('active-soporte');
+          }
+          activeBtn.setAttribute('aria-selected', 'true');
+        }
+
+        // Mostrar el contenido correspondiente
+        if (contents[tabId]) {
+          contents[tabId].classList.add('active');
+        }
+      }
+
+      // Asignar eventos a las pestañas
+      tabs.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          const tabId = this.dataset.tab;
+          activateTab(tabId);
+        });
+      });
+
+      // Activar la primera pestaña por defecto (si no hay ninguna activa)
+      const hasActive = Array.from(tabs).some(btn => btn.classList.contains('active'));
+      if (!hasActive && tabs.length > 0) {
+        activateTab('datos');
+      }
+
+    })();
+  </script>
+</body>
+
+</html>
