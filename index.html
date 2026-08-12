@@ -341,14 +341,12 @@
       display: block;
     }
 
-    /* ========== INTRODUCCIÓN - NUEVO DISEÑO ========== */
+    /* ========== INTRODUCCIÓN CON IMAGEN DE FONDO ========== */
     .intro-section {
       margin-bottom: 3rem;
     }
 
-    /* Banner de introducción - MUY DIFERENTE a los proyectos */
     .intro-banner {
-      background: linear-gradient(135deg, #1a3a2a, #2a5a3a);
       border-radius: var(--radius-lg);
       padding: 2.5rem 3rem;
       color: white;
@@ -356,8 +354,29 @@
       position: relative;
       overflow: hidden;
       margin-bottom: 0.5rem;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
+    /* Capa de fondo con imagen para Análisis de Datos */
+    .intro-banner.datos-banner {
+      background: linear-gradient(135deg, rgba(15, 44, 31, 0.85), rgba(30, 86, 49, 0.85)), 
+                  url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Capa de fondo con imagen para Soporte Técnico */
+    .intro-banner.soporte-banner {
+      background: linear-gradient(135deg, rgba(60, 50, 20, 0.88), rgba(120, 100, 30, 0.88)), 
+                  url('https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Efecto de brillo sutil en la imagen */
     .intro-banner::before {
       content: '';
       position: absolute;
@@ -367,6 +386,7 @@
       height: 300px;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 50%;
+      z-index: 0;
     }
 
     .intro-banner::after {
@@ -378,6 +398,12 @@
       height: 200px;
       background: rgba(255, 255, 255, 0.03);
       border-radius: 50%;
+      z-index: 0;
+    }
+
+    .intro-banner * {
+      position: relative;
+      z-index: 1;
     }
 
     .intro-banner .intro-icon {
@@ -390,17 +416,13 @@
       font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
-      position: relative;
-      z-index: 1;
     }
 
     .intro-banner p {
       font-size: 1.05rem;
-      opacity: 0.9;
+      opacity: 0.92;
       max-width: 700px;
       margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
       line-height: 1.7;
     }
 
@@ -409,8 +431,6 @@
       flex-wrap: wrap;
       gap: 0.6rem;
       margin-top: 0.5rem;
-      position: relative;
-      z-index: 1;
     }
 
     .intro-banner .tools-grid span {
@@ -435,8 +455,6 @@
       display: flex;
       gap: 2rem;
       margin-top: 1.5rem;
-      position: relative;
-      z-index: 1;
       flex-wrap: wrap;
     }
 
@@ -444,21 +462,18 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.1);
       padding: 0.4rem 1.2rem;
       border-radius: 40px;
       font-size: 0.9rem;
+      backdrop-filter: blur(4px);
     }
 
     .intro-banner .intro-stats .stat i {
       font-size: 1.1rem;
     }
 
-    /* Intro para Soporte Técnico - versión dorada */
-    .intro-banner.soporte-banner {
-      background: linear-gradient(135deg, #5a4a1a, #8a7a2a);
-    }
-
+    /* Intro para Soporte Técnico - badges dorados */
     .intro-banner.soporte-banner .tools-grid span {
       background: rgba(255, 193, 7, 0.2);
       border-color: rgba(255, 193, 7, 0.2);
@@ -867,6 +882,7 @@
       }
       .intro-banner {
         padding: 1.5rem 1.5rem;
+        min-height: 220px;
       }
       .intro-banner h2 {
         font-size: 1.4rem;
@@ -925,7 +941,7 @@
     <div class="hero-content">
       <h2>Ing. Sistemas de Información</h2>
       <h1>Eder Steven Moriel Perero</h1>
-      <p class="subtitle">📊 Analista de Datos & 🛠️ Soporte Técnico</p>
+      <p class="subtitle">📊 Analista de Datos & Soporte Técnico 🛠️</p>
       <div class="hero-badges">
         <span><i class="fas fa-chart-line"></i> Power BI</span>
         <span><i class="fab fa-python"></i> Python</span>
@@ -1002,16 +1018,15 @@
         </button>
         <button class="tab-btn" data-tab="soporte" role="tab" aria-selected="false">
           <i class="fas fa-tools"></i> Soporte Técnico
-          <span class="badge-count">3</span>
         </button>
       </nav>
 
       <!-- ===== ANÁLISIS DE DATOS ===== -->
       <div id="tab-datos" class="tab-content active" role="tabpanel">
         
-        <!-- === NUEVA INTRODUCCIÓN CON BANNER === -->
+        <!-- INTRODUCCIÓN CON IMAGEN DE FONDO -->
         <div class="intro-section">
-          <div class="intro-banner">
+          <div class="intro-banner datos-banner">
             <span class="intro-icon"><i class="fas fa-chart-line"></i></span>
             <h2>Análisis de Datos</h2>
             <p>
@@ -1031,8 +1046,8 @@
             </div>
             <div class="intro-stats">
               <span class="stat"><i class="fas fa-project-diagram"></i> 5 Proyectos</span>
-              <span class="stat"><i class="fas fa-database"></i> 4+ Bases de datos</span>
-              <span class="stat"><i class="fas fa-chart-pie"></i> 10+ Dashboards</span>
+              <span class="stat"><i class="fas fa-database"></i> 2+ Bases de datos</span>
+              <span class="stat"><i class="fas fa-chart-pie"></i> 3+ Dashboards</span>
             </div>
           </div>
         </div>
@@ -1257,11 +1272,11 @@
       <!-- ===== SOPORTE TÉCNICO ===== -->
       <div id="tab-soporte" class="tab-content" role="tabpanel">
         
-        <!-- === INTRO SOPORTE CON BANNER === -->
+        <!-- INTRODUCCIÓN CON IMAGEN DE FONDO PARA SOPORTE -->
         <div class="intro-section">
           <div class="intro-banner soporte-banner">
             <span class="intro-icon"><i class="fas fa-tools"></i></span>
-            <h2>Soporte Técnico Especializado</h2>
+            <h2>Soporte Técnico (TI)</h2>
             <p>
               Garantizo la continuidad operativa mediante soluciones rápidas y efectivas. 
               Mi experiencia abarca soporte presencial y remoto, desde la resolución de incidencias 
@@ -1275,8 +1290,8 @@
               <span><i class="fas fa-ticket-alt"></i> Help Desk</span>
             </div>
             <div class="intro-stats">
-              <span class="stat"><i class="fas fa-check-circle"></i> 6 Servicios</span>
-              <span class="stat"><i class="fas fa-users"></i> Soporte 50+ usuarios</span>
+              <span class="stat"><i class="fas fa-check-circle"></i> 4 Servicios</span>
+              <span class="stat"><i class="fas fa-users"></i> Soporte 20+ usuarios</span>
               <span class="stat"><i class="fas fa-clock"></i> 24/7 Disponibilidad</span>
             </div>
           </div>
@@ -1316,122 +1331,6 @@
           <span class="label"><i class="fas fa-folder-open"></i> Proyectos</span>
         </div>
 
-        <!-- Proyectos de Soporte -->
-        <div class="proyectos-grid">
-          <div class="proyecto-accordion">
-            <div class="proyecto-accordion-header" onclick="toggleAccordion(this)">
-              <div class="info-left">
-                <span class="numero" style="background: #fff3cd; color: #856404;">01</span>
-                <div class="info-text">
-                  <h3>Implementación de Help Desk</h3>
-                  <p>Sistema de mesa de ayuda con OSTicket</p>
-                </div>
-              </div>
-              <span class="badge-mini" style="background: #fff3cd; color: #856404;"><i class="fas fa-tools"></i> Soporte</span>
-              <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="proyecto-accordion-body">
-              <div style="background: var(--gray-light); padding: 2rem; border-radius: var(--radius-md); text-align: center; margin-bottom: 1rem;">
-                <i class="fas fa-ticket-alt" style="font-size: 3rem; color: #ffc107;"></i>
-                <h4 style="color: var(--primary-dark); margin-top: 0.5rem;">Sistema de Tickets Implementado</h4>
-                <p style="color: var(--gray-dark);">Gestión de incidencias con priorización, seguimiento y reportes de SLA</p>
-              </div>
-              <div class="info-grid">
-                <div class="desc-box" style="border-left-color: #ffc107;">
-                  <strong><i class="fas fa-info-circle"></i> Descripción</strong>
-                  <p>Implementación de Help Desk con OSTicket para gestión eficiente de incidencias, priorización de tickets y generación de reportes SLA.</p>
-                </div>
-                <div class="tech-box" style="border-left-color: #ffc107;">
-                  <strong><i class="fas fa-code"></i> Tecnologías</strong>
-                  <span style="background: #ffc107; color: #000;">OSTicket</span>
-                  <span style="background: #ffc107; color: #000;">MySQL</span>
-                  <span style="background: #ffc107; color: #000;">Apache</span>
-                  <span style="background: #ffc107; color: #000;">Windows Server</span>
-                </div>
-              </div>
-              <div class="insights-box" style="border-left-color: #ffc107; background: #fff3cd;">
-                <strong><i class="fas fa-check-circle"></i> Resultados</strong>
-                <p>Reducción del 40% en tiempo de respuesta, seguimiento efectivo de incidencias, reportes mensuales de satisfacción.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="proyecto-accordion">
-            <div class="proyecto-accordion-header" onclick="toggleAccordion(this)">
-              <div class="info-left">
-                <span class="numero" style="background: #fff3cd; color: #856404;">02</span>
-                <div class="info-text">
-                  <h3>Migración a Windows 11</h3>
-                  <p>Actualización de 50+ equipos en organización</p>
-                </div>
-              </div>
-              <span class="badge-mini" style="background: #fff3cd; color: #856404;"><i class="fas fa-tools"></i> Soporte</span>
-              <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="proyecto-accordion-body">
-              <div style="background: var(--gray-light); padding: 2rem; border-radius: var(--radius-md); text-align: center; margin-bottom: 1rem;">
-                <i class="fas fa-server" style="font-size: 3rem; color: #ffc107;"></i>
-                <h4 style="color: var(--primary-dark); margin-top: 0.5rem;">Infraestructura Modernizada</h4>
-                <p style="color: var(--gray-dark);">Actualización de 50+ equipos, migración de datos y capacitación a usuarios</p>
-              </div>
-              <div class="info-grid">
-                <div class="desc-box" style="border-left-color: #ffc107;">
-                  <strong><i class="fas fa-info-circle"></i> Descripción</strong>
-                  <p>Migración de 50+ equipos a Windows 11 con actualización de hardware, migración de datos, configuración de Active Directory y capacitación al personal.</p>
-                </div>
-                <div class="tech-box" style="border-left-color: #ffc107;">
-                  <strong><i class="fas fa-code"></i> Tecnologías</strong>
-                  <span style="background: #ffc107; color: #000;">Windows 11</span>
-                  <span style="background: #ffc107; color: #000;">Active Directory</span>
-                  <span style="background: #ffc107; color: #000;">Acronis Backup</span>
-                  <span style="background: #ffc107; color: #000;">Redes LAN</span>
-                </div>
-              </div>
-              <div class="insights-box" style="border-left-color: #ffc107; background: #fff3cd;">
-                <strong><i class="fas fa-check-circle"></i> Resultados</strong>
-                <p>Cero pérdida de datos, mejora del 60% en rendimiento, capacitación exitosa al 100% del personal.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="proyecto-accordion">
-            <div class="proyecto-accordion-header" onclick="toggleAccordion(this)">
-              <div class="info-left">
-                <span class="numero" style="background: #fff3cd; color: #856404;">03</span>
-                <div class="info-text">
-                  <h3>Seguridad y Respaldos</h3>
-                  <p>Políticas de seguridad y backups automatizados</p>
-                </div>
-              </div>
-              <span class="badge-mini" style="background: #fff3cd; color: #856404;"><i class="fas fa-tools"></i> Soporte</span>
-              <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <div class="proyecto-accordion-body">
-              <div style="background: var(--gray-light); padding: 2rem; border-radius: var(--radius-md); text-align: center; margin-bottom: 1rem;">
-                <i class="fas fa-shield-alt" style="font-size: 3rem; color: #ffc107;"></i>
-                <h4 style="color: var(--primary-dark); margin-top: 0.5rem;">Seguridad Integral</h4>
-                <p style="color: var(--gray-dark);">Políticas de seguridad, backups diarios y plan de recuperación ante desastres</p>
-              </div>
-              <div class="info-grid">
-                <div class="desc-box" style="border-left-color: #ffc107;">
-                  <strong><i class="fas fa-info-circle"></i> Descripción</strong>
-                  <p>Implementación de seguridad con cifrado BitLocker, backups automatizados diarios, configuración de firewall y políticas de acceso.</p>
-                </div>
-                <div class="tech-box" style="border-left-color: #ffc107;">
-                  <strong><i class="fas fa-code"></i> Tecnologías</strong>
-                  <span style="background: #ffc107; color: #000;">BitLocker</span>
-                  <span style="background: #ffc107; color: #000;">Veeam Backup</span>
-                  <span style="background: #ffc107; color: #000;">Firewall</span>
-                  <span style="background: #ffc107; color: #000;">Active Directory</span>
-                </div>
-              </div>
-              <div class="insights-box" style="border-left-color: #ffc107; background: #fff3cd;">
-                <strong><i class="fas fa-check-circle"></i> Resultados</strong>
-                <p>100% de datos respaldados diariamente, cero incidentes de seguridad en 6 meses, tiempo de recuperación reducido a 2 horas.</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
