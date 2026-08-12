@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Metadatos para SEO -->
   <meta name="description" content="Portafolio profesional de Ing. Eder Steven Moriel Perero - Analista de Datos & Soporte Técnico Especializado">
   <meta name="author" content="Eder Steven Moriel Perero">
   <meta name="robots" content="index, follow">
@@ -32,7 +31,7 @@
       --primary-soft: #e8f5e9;
       --gray-light: #f8fafc;
       --gray: #e2e8f0;
-      --gray-dark: #334155;
+      --gray-dark: #4a5568;
       --text-dark: #0f172a;
       --text-light: #f1f5f9;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -342,66 +341,164 @@
       display: block;
     }
 
-    /* ========== INTRO DE APARTADOS ========== */
-    .tab-intro {
-      background: white;
+    /* ========== INTRODUCCIÓN - NUEVO DISEÑO ========== */
+    .intro-section {
+      margin-bottom: 3rem;
+    }
+
+    /* Banner de introducción - MUY DIFERENTE a los proyectos */
+    .intro-banner {
+      background: linear-gradient(135deg, #1a3a2a, #2a5a3a);
       border-radius: var(--radius-lg);
-      padding: 2rem 2.5rem;
-      margin-bottom: 2.5rem;
-      box-shadow: var(--shadow-md);
-      border-left: 5px solid var(--primary-light);
+      padding: 2.5rem 3rem;
+      color: white;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
     }
 
-    .tab-intro.soporte-intro {
-      border-left-color: #ffc107;
+    .intro-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
     }
 
-    .tab-intro h3 {
-      font-size: 1.3rem;
-      color: var(--primary-dark);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+    .intro-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: -10%;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 50%;
     }
 
-    .tab-intro h3 i {
-      color: var(--primary-light);
+    .intro-banner .intro-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      display: block;
     }
 
-    .tab-intro.soporte-intro h3 i {
-      color: #ffc107;
-    }
-
-    .tab-intro p {
-      color: var(--gray-dark);
+    .intro-banner h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
       margin-bottom: 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-banner p {
+      font-size: 1.05rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
       line-height: 1.7;
     }
 
-    .tab-intro .tools-grid {
+    .intro-banner .tools-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.75rem;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+      position: relative;
+      z-index: 1;
     }
 
-    .tab-intro .tools-grid span {
+    .intro-banner .tools-grid span {
       display: inline-block;
-      background: var(--primary-soft);
-      color: var(--primary-dark);
-      padding: 0.3rem 1rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      color: white;
+      padding: 0.35rem 1.2rem;
       border-radius: 30px;
       font-size: 0.8rem;
       font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
     }
 
-    .tab-intro.soporte-intro .tools-grid span {
-      background: #fff3cd;
-      color: #856404;
+    .intro-banner .tools-grid span:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
     }
 
-    /* ========== PROYECTOS - NUEVO DISEÑO ACCORDION ========== */
+    .intro-banner .intro-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+    }
+
+    .intro-banner .intro-stats .stat {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+    }
+
+    .intro-banner .intro-stats .stat i {
+      font-size: 1.1rem;
+    }
+
+    /* Intro para Soporte Técnico - versión dorada */
+    .intro-banner.soporte-banner {
+      background: linear-gradient(135deg, #5a4a1a, #8a7a2a);
+    }
+
+    .intro-banner.soporte-banner .tools-grid span {
+      background: rgba(255, 193, 7, 0.2);
+      border-color: rgba(255, 193, 7, 0.2);
+    }
+
+    .intro-banner.soporte-banner .tools-grid span:hover {
+      background: rgba(255, 193, 7, 0.35);
+    }
+
+    .intro-banner.soporte-banner .intro-stats .stat {
+      background: rgba(255, 193, 7, 0.15);
+    }
+
+    /* Separador visual entre intro y proyectos */
+    .section-separator {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0 1.5rem 0;
+      color: var(--gray-dark);
+    }
+
+    .section-separator::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray);
+    }
+
+    .section-separator .label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray-dark);
+      background: white;
+      padding: 0 1rem;
+    }
+
+    /* ========== PROYECTOS ACCORDION ========== */
     .proyectos-grid {
       display: flex;
       flex-direction: column;
@@ -461,7 +558,7 @@
     }
 
     .proyecto-accordion-header .info-text h3 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: var(--primary-dark);
       margin: 0;
@@ -477,7 +574,7 @@
       display: inline-block;
       background: var(--primary-soft);
       color: var(--primary-dark);
-      padding: 0.15rem 0.6rem;
+      padding: 0.15rem 0.7rem;
       border-radius: 20px;
       font-size: 0.65rem;
       font-weight: 600;
@@ -765,8 +862,17 @@
       .container {
         padding: 2rem 1rem;
       }
-      .sobre-mi, .certificaciones, .tab-intro {
+      .sobre-mi, .certificaciones {
         padding: 1.5rem;
+      }
+      .intro-banner {
+        padding: 1.5rem 1.5rem;
+      }
+      .intro-banner h2 {
+        font-size: 1.4rem;
+      }
+      .intro-banner .intro-stats {
+        gap: 1rem;
       }
       .hero {
         min-height: 70vh;
@@ -902,24 +1008,38 @@
 
       <!-- ===== ANÁLISIS DE DATOS ===== -->
       <div id="tab-datos" class="tab-content active" role="tabpanel">
-        <!-- INTRO -->
-        <div class="tab-intro">
-          <h3><i class="fas fa-chart-line"></i> Análisis de Datos</h3>
-          <p>
-            Como Analista de Datos, transformo datos brutos en información valiosa para la toma de decisiones estratégicas. 
-            Mi enfoque combina habilidades técnicas con una comprensión profunda del negocio.
-          </p>
-          <p><strong>Stack tecnológico:</strong></p>
-          <div class="tools-grid">
-            <span><i class="fas fa-database"></i> PostgreSQL</span>
-            <span><i class="fas fa-database"></i> SQL Server</span>
-            <span><i class="fab fa-python"></i> Python</span>
-            <span><i class="fas fa-exchange-alt"></i> ETL</span>
-            <span><i class="fas fa-chart-pie"></i> Power BI</span>
-            <span><i class="fas fa-file-excel"></i> Excel</span>
-            <span><i class="fas fa-code"></i> Power Query</span>
-            <span><i class="fas fa-code"></i> DAX</span>
+        
+        <!-- === NUEVA INTRODUCCIÓN CON BANNER === -->
+        <div class="intro-section">
+          <div class="intro-banner">
+            <span class="intro-icon"><i class="fas fa-chart-line"></i></span>
+            <h2>Análisis de Datos</h2>
+            <p>
+              Transformo datos brutos en información valiosa para la toma de decisiones estratégicas. 
+              Mi enfoque combina habilidades técnicas con una comprensión profunda del negocio para 
+              entregar insights accionables.
+            </p>
+            <div class="tools-grid">
+              <span><i class="fas fa-database"></i> PostgreSQL</span>
+              <span><i class="fas fa-database"></i> SQL Server</span>
+              <span><i class="fab fa-python"></i> Python</span>
+              <span><i class="fas fa-exchange-alt"></i> ETL</span>
+              <span><i class="fas fa-chart-pie"></i> Power BI</span>
+              <span><i class="fas fa-file-excel"></i> Excel</span>
+              <span><i class="fas fa-code"></i> Power Query</span>
+              <span><i class="fas fa-code"></i> DAX</span>
+            </div>
+            <div class="intro-stats">
+              <span class="stat"><i class="fas fa-project-diagram"></i> 5 Proyectos</span>
+              <span class="stat"><i class="fas fa-database"></i> 4+ Bases de datos</span>
+              <span class="stat"><i class="fas fa-chart-pie"></i> 10+ Dashboards</span>
+            </div>
           </div>
+        </div>
+
+        <!-- Separador visual -->
+        <div class="section-separator">
+          <span class="label"><i class="fas fa-folder-open"></i> Proyectos</span>
         </div>
 
         <!-- PROYECTOS ACCORDION -->
@@ -1136,31 +1256,38 @@
 
       <!-- ===== SOPORTE TÉCNICO ===== -->
       <div id="tab-soporte" class="tab-content" role="tabpanel">
-        <div class="tab-intro soporte-intro">
-          <h3><i class="fas fa-tools" style="color: #ffc107;"></i> Soporte Técnico Especializado</h3>
-          <p>
-            Me enfoco en garantizar la continuidad operativa mediante soluciones rápidas y efectivas. 
-            Mi experiencia abarca soporte presencial y remoto de manera independiente.
-          </p>
-          <p><strong>Servicios:</strong></p>
-          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; color: var(--gray-dark);">
-            <li>✅ Soporte técnico presencial y remoto a usuarios</li>
-            <li>✅ Resolución de incidentes de hardware, software y conectividad</li>
-            <li>✅ Instalación y configuración de PCs, notebooks, impresoras y dispositivos</li>
-            <li>✅ Gestión de usuarios, accesos y cuentas de Microsoft 365</li>
-            <li>✅ Mantenimiento y actualizaciones de equipos</li>
-            <li>✅ Soporte básico de redes, servidores y respaldos</li>
-          </ul>
-          <p><strong>Herramientas:</strong></p>
-          <div class="tools-grid">
-            <span><i class="fas fa-file-alt"></i> Ofimática (Office 365)</span>
-            <span><i class="fas fa-users-cog"></i> Microsoft 365 Admin</span>
-            <span><i class="fas fa-network-wired"></i> Redes LAN/WAN</span>
-            <span><i class="fas fa-cloud"></i> Backups</span>
-            <span><i class="fas fa-ticket-alt"></i> Help Desk</span>
+        
+        <!-- === INTRO SOPORTE CON BANNER === -->
+        <div class="intro-section">
+          <div class="intro-banner soporte-banner">
+            <span class="intro-icon"><i class="fas fa-tools"></i></span>
+            <h2>Soporte Técnico Especializado</h2>
+            <p>
+              Garantizo la continuidad operativa mediante soluciones rápidas y efectivas. 
+              Mi experiencia abarca soporte presencial y remoto, desde la resolución de incidencias 
+              hasta la gestión de infraestructura tecnológica.
+            </p>
+            <div class="tools-grid">
+              <span><i class="fas fa-file-alt"></i> Ofimática (Office 365)</span>
+              <span><i class="fas fa-users-cog"></i> Microsoft 365 Admin</span>
+              <span><i class="fas fa-network-wired"></i> Redes LAN/WAN</span>
+              <span><i class="fas fa-cloud"></i> Backups</span>
+              <span><i class="fas fa-ticket-alt"></i> Help Desk</span>
+            </div>
+            <div class="intro-stats">
+              <span class="stat"><i class="fas fa-check-circle"></i> 6 Servicios</span>
+              <span class="stat"><i class="fas fa-users"></i> Soporte 50+ usuarios</span>
+              <span class="stat"><i class="fas fa-clock"></i> 24/7 Disponibilidad</span>
+            </div>
           </div>
         </div>
 
+        <!-- Separador -->
+        <div class="section-separator">
+          <span class="label"><i class="fas fa-cogs"></i> Servicios</span>
+        </div>
+
+        <!-- Servicios -->
         <div class="soporte-services">
           <div class="service-card">
             <i class="fas fa-desktop"></i>
@@ -1184,7 +1311,12 @@
           </div>
         </div>
 
-        <!-- Proyectos de Soporte (versión simplificada) -->
+        <!-- Separador -->
+        <div class="section-separator">
+          <span class="label"><i class="fas fa-folder-open"></i> Proyectos</span>
+        </div>
+
+        <!-- Proyectos de Soporte -->
         <div class="proyectos-grid">
           <div class="proyecto-accordion">
             <div class="proyecto-accordion-header" onclick="toggleAccordion(this)">
@@ -1367,9 +1499,9 @@
       accordion.classList.toggle('active');
     }
 
-    // Abrir el primer accordion por defecto
+    // Abrir el primer accordion por defecto en datos
     document.addEventListener('DOMContentLoaded', function() {
-      const firstAccordion = document.querySelector('.proyecto-accordion');
+      const firstAccordion = document.querySelector('#tab-datos .proyecto-accordion');
       if (firstAccordion) {
         firstAccordion.classList.add('active');
       }
