@@ -148,6 +148,7 @@
     }
 
     /* ========== SOBRE MÍ ========== */
+        /* ========== SOBRE MÍ - NUEVO DISEÑO ========== */
     .sobre-mi {
       background: white;
       border-radius: var(--radius-lg);
@@ -161,11 +162,31 @@
       box-shadow: var(--shadow-lg);
     }
 
+    .sobre-mi-container {
+      max-width: 100%;
+    }
+
+    .sobre-mi-header {
+      margin-bottom: 2rem;
+    }
+
+    .sobre-mi-descripcion {
+      color: var(--gray-dark);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 800px;
+      margin-top: 0.5rem;
+    }
+
+    .sobre-mi-descripcion strong {
+      color: var(--primary-dark);
+    }
+
     .section-title {
       font-size: 2rem;
       font-weight: 700;
       color: var(--primary-dark);
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
       position: relative;
       display: inline-block;
     }
@@ -181,84 +202,264 @@
       border-radius: 3px;
     }
 
-    .grid-2cols {
+    /* Grid de 3 columnas */
+    .sobre-mi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      margin-top: 1rem;
+      margin-bottom: 2rem;
     }
 
-    .info-card-modern {
+    /* Tarjetas individuales */
+    .sobre-card {
       background: var(--gray-light);
       border-radius: var(--radius-md);
       padding: 1.5rem;
       transition: var(--transition);
       border: 1px solid var(--gray);
+      display: flex;
+      flex-direction: column;
     }
 
-    .info-card-modern:hover {
-      transform: translateY(-3px);
+    .sobre-card:hover {
+      transform: translateY(-4px);
       box-shadow: var(--shadow-md);
       border-color: var(--primary-light);
     }
 
-    .info-card-modern h3 {
+    .sobre-card-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary-soft);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
       color: var(--primary);
-      margin-bottom: 0.75rem;
-      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      flex-shrink: 0;
+    }
+
+    .sobre-card h3 {
+      font-size: 1.1rem;
       font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    /* Lista de experiencia */
+    .sobre-card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex: 1;
+    }
+
+    .sobre-card-list li {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+
+    .sobre-card-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .sobre-card-list .list-dot {
+      display: block;
+      width: 8px;
+      height: 8px;
+      background: var(--primary-light);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .sobre-card-list li div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sobre-card-list li strong {
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+    }
+
+    .sobre-card-list li span {
+      color: var(--gray-dark);
+      font-size: 0.85rem;
+    }
+
+    /* Tags de habilidades */
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      flex: 1;
+      align-content: flex-start;
+    }
+
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: white;
+      padding: 0.4rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      border: 1px solid var(--gray);
+      transition: var(--transition);
+    }
+
+    .skill-tag:hover {
+      border-color: var(--primary-light);
+      background: var(--primary-soft);
+      transform: translateY(-2px);
+    }
+
+    .skill-tag i {
+      color: var(--primary-light);
+      font-size: 0.75rem;
+    }
+
+    /* Soft Skills Grid */
+    .soft-skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      flex: 1;
+      align-content: flex-start;
+    }
+
+    .soft-skill {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-    }
-
-    .info-card-modern ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .info-card-modern li {
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
-    }
-
-    .info-card-modern li i {
-      color: var(--primary-light);
-      width: 1.25rem;
-      font-size: 0.9rem;
-    }
-
-    .info-cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .card {
       background: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
       border: 1px solid var(--gray);
-      border-radius: var(--radius-md);
-      padding: 1.25rem;
-      flex: 1;
-      min-width: 150px;
-      text-align: center;
+      font-size: 0.85rem;
       transition: var(--transition);
-      box-shadow: var(--shadow-sm);
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
+    .soft-skill:hover {
       border-color: var(--primary-light);
+      background: var(--primary-soft);
+      transform: translateY(-2px);
     }
 
-    .card strong {
-      color: var(--primary-dark);
-      display: block;
-      margin-bottom: 0.5rem;
+    .soft-skill i {
+      color: var(--primary-light);
+      font-size: 0.9rem;
+      width: 18px;
+    }
+
+    .soft-skill span {
+      color: var(--gray-dark);
+      font-size: 0.8rem;
+    }
+
+    /* Contacto rápido - nuevo diseño horizontal */
+    .contacto-rapido {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray);
+      margin-top: 0.5rem;
+    }
+
+    .contacto-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: white;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--gray);
+      transition: var(--transition);
+    }
+
+    .contacto-item:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-2px);
+    }
+
+    .contacto-item i {
+      font-size: 1.2rem;
+      color: var(--primary-light);
+      width: 28px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .contacto-item div {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .contacto-item strong {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--gray-dark);
+      font-weight: 600;
+    }
+
+    .contacto-item span,
+    .contacto-item a {
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      text-decoration: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .contacto-item a:hover {
+      color: var(--primary-light);
+      text-decoration: underline;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .sobre-mi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contacto-rapido {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sobre-mi-grid {
+        grid-template-columns: 1fr;
+      }
+      .contacto-rapido {
+        grid-template-columns: 1fr 1fr;
+      }
+      .soft-skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .sobre-mi {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contacto-rapido {
+        grid-template-columns: 1fr;
+      }
+      .soft-skills-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ========== TABS ========== */
@@ -956,55 +1157,132 @@
 
   <main class="container">
     <!-- ========== SOBRE MÍ ========== -->
+        <!-- ========== SOBRE MÍ - REDISEÑADO ========== -->
     <section class="sobre-mi" aria-label="Información personal y profesional">
-      <h2 class="section-title">Sobre Mí</h2>
-      <div class="grid-2cols">
-        <div class="info-card-modern">
-          <h3><i class="fas fa-briefcase"></i> Experiencia</h3>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Creación de reportes en <strong>Sudamericana de Software (SASF)</strong></li>
-            <li><i class="fas fa-check-circle"></i> Registro y análisis de datos en <strong>Dirección General de Aviación Civil (DAC)</strong></li>
-            <li><i class="fas fa-check-circle"></i> Soporte técnico y mantenimiento de sistemas</li>
-          </ul>
+      <div class="sobre-mi-container">
+        <div class="sobre-mi-header">
+          <h2 class="section-title">Sobre Mí</h2>
+          <p class="sobre-mi-descripcion">
+            Ingeniero en Sistemas de Información con experiencia en <strong>análisis de datos</strong> y <strong>soporte técnico</strong>. 
+            Combino habilidades técnicas con una visión estratégica para transformar datos en decisiones 
+            y garantizar la continuidad operativa de las organizaciones.
+          </p>
         </div>
-        <div class="info-card-modern">
-          <h3><i class="fas fa-tools"></i> Habilidades Técnicas</h3>
-          <ul>
-            <li><i class="fas fa-chart-pie"></i> Business Intelligence & Dashboards</li>
-            <li><i class="fas fa-database"></i> ETL, DAX, Power Query</li>
-            <li><i class="fas fa-network-wired"></i> Redes y conectividad</li>
-            <li><i class="fas fa-desktop"></i> Mantenimiento de hardware/SO</li>
-            <li><i class="fas fa-shield-alt"></i> Seguridad informática básica</li>
-          </ul>
-        </div>
-        <div class="info-card-modern">
-          <h3><i class="fas fa-star"></i> Soft Skills</h3>
-          <ul>
-            <li><i class="fas fa-heart"></i> Responsabilidad y ética profesional</li>
-            <li><i class="fas fa-trophy"></i> Compromiso con la excelencia</li>
-            <li><i class="fas fa-graduation-cap"></i> Aprendizaje continuo</li>
-            <li><i class="fas fa-users"></i> Trabajo en equipo y comunicación</li>
-          </ul>
-        </div>
-      </div>
 
-      <div class="info-cards">
-        <div class="card">
-          <strong><i class="fas fa-graduation-cap"></i> Formación</strong>
-          Sistemas de Información<br>
-          Universidad de Guayaquil
+        <!-- Grid principal con 3 columnas -->
+        <div class="sobre-mi-grid">
+          <!-- Tarjeta: Experiencia -->
+          <div class="sobre-card">
+            <div class="sobre-card-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h3>Experiencia</h3>
+            <ul class="sobre-card-list">
+              <li>
+                <span class="list-dot"></span>
+                <div>
+                  <strong>Sudamericana de Software (SASF)</strong>
+                  <span>Creación de reportes y dashboards</span>
+                </div>
+              </li>
+              <li>
+                <span class="list-dot"></span>
+                <div>
+                  <strong>Dirección General de Aviación Civil (DAC)</strong>
+                  <span>Registro y análisis de datos</span>
+                </div>
+              </li>
+              <li>
+                <span class="list-dot"></span>
+                <div>
+                  <strong>Soporte Técnico</strong>
+                  <span>Mantenimiento de sistemas y redes</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tarjeta: Habilidades Técnicas -->
+          <div class="sobre-card">
+            <div class="sobre-card-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Habilidades Técnicas</h3>
+            <div class="skills-tags">
+              <span class="skill-tag"><i class="fas fa-chart-pie"></i> Business Intelligence</span>
+              <span class="skill-tag"><i class="fas fa-database"></i> ETL / DAX / Power Query</span>
+              <span class="skill-tag"><i class="fas fa-network-wired"></i> Redes y Conectividad</span>
+              <span class="skill-tag"><i class="fas fa-desktop"></i> Mantenimiento Hardware/SO</span>
+              <span class="skill-tag"><i class="fas fa-shield-alt"></i> Seguridad Informática</span>
+              <span class="skill-tag"><i class="fas fa-cloud"></i> Infraestructura TI</span>
+            </div>
+          </div>
+
+          <!-- Tarjeta: Soft Skills -->
+          <div class="sobre-card">
+            <div class="sobre-card-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <h3>Soft Skills</h3>
+            <div class="soft-skills-grid">
+              <div class="soft-skill">
+                <i class="fas fa-heart"></i>
+                <span>Responsabilidad</span>
+              </div>
+              <div class="soft-skill">
+                <i class="fas fa-trophy"></i>
+                <span>Excelencia</span>
+              </div>
+              <div class="soft-skill">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Aprendizaje continuo</span>
+              </div>
+              <div class="soft-skill">
+                <i class="fas fa-users"></i>
+                <span>Trabajo en equipo</span>
+              </div>
+              <div class="soft-skill">
+                <i class="fas fa-comments"></i>
+                <span>Comunicación</span>
+              </div>
+              <div class="soft-skill">
+                <i class="fas fa-lightbulb"></i>
+                <span>Resolución de problemas</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <strong><i class="fas fa-map-marker-alt"></i> Ubicación</strong>
-          Guayaquil, Ecuador
-        </div>
-        <div class="card">
-          <strong><i class="fas fa-envelope"></i> Contacto</strong>
-          edermoriel@hotmail.com
-        </div>
-        <div class="card">
-          <strong><i class="fas fa-phone-alt"></i> Teléfono</strong>
-          0963156344
+
+        <!-- Contacto rápido - Ahora en un solo bloque horizontal -->
+        <div class="contacto-rapido">
+          <div class="contacto-item">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <strong>Formación</strong>
+              <span>Sistemas de Información · Universidad de Guayaquil</span>
+            </div>
+          </div>
+          <div class="contacto-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Ubicación</strong>
+              <span>Guayaquil, Ecuador</span>
+            </div>
+          </div>
+          <div class="contacto-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <span><a href="mailto:edermoriel@hotmail.com">edermoriel@hotmail.com</a></span>
+            </div>
+          </div>
+          <div class="contacto-item">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <strong>Teléfono</strong>
+              <span>0963156344</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
