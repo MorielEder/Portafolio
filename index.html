@@ -71,123 +71,140 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ========== HEADER OPTIMIZADO ========== */
-    .hero {
-      position: relative;
-      min-height: 50vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background-image: linear-gradient(135deg, rgba(15, 44, 31, 0.88), rgba(30, 86, 49, 0.88)), 
-        url('https://img.itmastersmag.com/wp-content/uploads/2025/07/14032543/Analisis-de-Datos.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: scroll;
-      color: white;
-      padding: 2rem 1.5rem;
-      will-change: transform;
-      transform: translateZ(0);
-    }
+    /* ========== HEADER MEJORADO ========== */
+.hero {
+  position: relative;
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: linear-gradient(135deg, rgba(15, 44, 31, 0.85), rgba(30, 86, 49, 0.85)), 
+    url('https://img.itmastersmag.com/wp-content/uploads/2025/07/14032543/Analisis-de-Datos.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  color: white;
+  padding: 2rem 1.5rem;
+  will-change: transform;
+  transform: translateZ(0);
+  position: relative;
+}
 
-    .hero-content {
-      max-width: 1000px;
-      position: relative;
-      z-index: 2;
-      animation: fadeInUp 0.4s ease forwards;
-    }
+/* Efecto de brillo sutil en la parte superior */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
 
-    .hero h2 {
-      font-size: clamp(0.9rem, 1.8vw, 1.2rem);
-      font-weight: 300;
-      opacity: 0.8;
-      letter-spacing: 2px;
-      margin-bottom: 0.25rem;
-    }
+/* Línea decorativa inferior */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
 
-    .hero h1 {
-      font-size: clamp(1.6rem, 4vw, 2.8rem);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
+.hero-content {
+  max-width: 1000px;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 0.5s ease forwards;
+}
 
-    .hero .subtitle {
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      font-weight: 300;
-      opacity: 0.95;
-      margin-bottom: 0.5rem;
-    }
+.hero h2 {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 400;
+  opacity: 0.85;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  color: rgba(255, 255, 255, 0.9);
+}
 
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+}
 
-    .hero-badges span {
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 0.4rem 0.9rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      transition: var(--transition);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      cursor: default;
-    }
+.hero .subtitle {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-weight: 300;
+  opacity: 0.92;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
 
-    .hero-badges .badge-soporte {
-      background: rgba(255, 193, 7, 0.25);
-      border-color: rgba(255, 193, 7, 0.4);
-    }
+/* ========== RESPONSIVE HEADER ========== */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 45vh;
+    padding: 1.5rem 1rem;
+  }
+  
+  .hero h2 {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.3rem;
+  }
+  
+  .hero h1 {
+    font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+    margin-bottom: 0.4rem;
+  }
+  
+  .hero .subtitle {
+    font-size: clamp(0.95rem, 3vw, 1.2rem);
+    letter-spacing: 0.3px;
+  }
+}
 
-    /* ========== RESPONSIVE HEADER ========== */
-    @media (max-width: 768px) {
-      .hero {
-        min-height: 40vh;
-        padding: 1.5rem 1rem;
-      }
-      .hero h2 {
-        font-size: 0.85rem;
-      }
-      .hero h1 {
-        font-size: clamp(1.2rem, 4.5vw, 1.8rem);
-      }
-      .hero .subtitle {
-        font-size: 0.95rem;
-      }
-      .hero-badges {
-        gap: 0.3rem;
-        margin-top: 0.6rem;
-      }
-      .hero-badges span {
-        font-size: 0.65rem;
-        padding: 0.25rem 0.6rem;
-      }
-    }
+@media (max-width: 480px) {
+  .hero {
+    min-height: 38vh;
+    padding: 1rem 0.8rem;
+  }
+  
+  .hero h2 {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.2rem;
+  }
+  
+  .hero h1 {
+    font-size: clamp(1.3rem, 5vw, 1.7rem);
+    margin-bottom: 0.3rem;
+  }
+  
+  .hero .subtitle {
+    font-size: clamp(0.8rem, 2.8vw, 1rem);
+  }
+}
 
-    @media (max-width: 480px) {
-      .hero {
-        min-height: 35vh;
-        padding: 1rem 0.8rem;
-      }
-      .hero h1 {
-        font-size: clamp(1rem, 4vw, 1.4rem);
-      }
-      .hero .subtitle {
-        font-size: 0.8rem;
-      }
-      .hero-badges span {
-        font-size: 0.55rem;
-        padding: 0.2rem 0.5rem;
-      }
-    }
-
+/* ========== RESPONSIVE PARA TABLETS ========== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero {
+    min-height: 50vh;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.2rem, 4.5vw, 2.8rem);
+  }
+}
     /* ========== CONTAINER ========== */
     .container {
       max-width: 1280px;
