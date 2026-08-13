@@ -148,7 +148,6 @@
     }
 
     /* ========== SOBRE MÍ ========== */
-        /* ========== SOBRE MÍ - NUEVO DISEÑO ========== */
     .sobre-mi {
       background: white;
       border-radius: var(--radius-lg);
@@ -202,7 +201,6 @@
       border-radius: 3px;
     }
 
-    /* Grid de 3 columnas */
     .sobre-mi-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -210,7 +208,6 @@
       margin-bottom: 2rem;
     }
 
-    /* Tarjetas individuales */
     .sobre-card {
       background: var(--gray-light);
       border-radius: var(--radius-md);
@@ -248,7 +245,6 @@
       margin-bottom: 1rem;
     }
 
-    /* Lista de experiencia */
     .sobre-card-list {
       list-style: none;
       padding: 0;
@@ -292,7 +288,6 @@
       font-size: 0.85rem;
     }
 
-    /* Tags de habilidades */
     .skills-tags {
       display: flex;
       flex-wrap: wrap;
@@ -326,7 +321,6 @@
       font-size: 0.75rem;
     }
 
-    /* Soft Skills Grid */
     .soft-skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -364,7 +358,6 @@
       font-size: 0.8rem;
     }
 
-    /* Contacto rápido - nuevo diseño horizontal */
     .contacto-rapido {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -426,40 +419,6 @@
     .contacto-item a:hover {
       color: var(--primary-light);
       text-decoration: underline;
-    }
-
-    /* ========== RESPONSIVE ========== */
-    @media (max-width: 1024px) {
-      .sobre-mi-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .contacto-rapido {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .sobre-mi-grid {
-        grid-template-columns: 1fr;
-      }
-      .contacto-rapido {
-        grid-template-columns: 1fr 1fr;
-      }
-      .soft-skills-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .sobre-mi {
-        padding: 1.5rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .contacto-rapido {
-        grid-template-columns: 1fr;
-      }
-      .soft-skills-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     /* ========== TABS ========== */
@@ -561,7 +520,6 @@
       justify-content: center;
     }
 
-    /* Capa de fondo con imagen para Análisis de Datos */
     .intro-banner.datos-banner {
       background: linear-gradient(130deg, rgba(15, 44, 31, 0.85), rgba(30, 86, 49, 0.85)), 
                   url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80');
@@ -569,7 +527,6 @@
       background-position: center;
     }
 
-    /* Capa de fondo con imagen para Soporte Técnico */
     .intro-banner.soporte-banner {
       background: linear-gradient(130deg, rgba(60, 50, 20, 0.88), rgba(120, 100, 30, 0.88)), 
                   url('https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=1200&q=80');
@@ -577,7 +534,6 @@
       background-position: center;
     }
 
-    /* Efecto de brillo sutil en la imagen */
     .intro-banner::before {
       content: '';
       position: absolute;
@@ -674,7 +630,6 @@
       font-size: 1.1rem;
     }
 
-    /* Intro para Soporte Técnico - badges dorados */
     .intro-banner.soporte-banner .tools-grid span {
       background: rgba(255, 193, 7, 0.2);
       border-color: rgba(255, 193, 7, 0.2);
@@ -688,7 +643,6 @@
       background: rgba(255, 193, 7, 0.15);
     }
 
-    /* Separador visual entre intro y proyectos */
     .section-separator {
       display: flex;
       align-items: center;
@@ -714,7 +668,7 @@
       padding: 0 1rem;
     }
 
-    /* ========== PROYECTOS ACCORDION ========== */
+    /* ========== PROYECTOS ACCORDION - NUEVO DISEÑO UNIFORME ========== */
     .proyectos-grid {
       display: flex;
       flex-direction: column;
@@ -797,6 +751,11 @@
       white-space: nowrap;
     }
 
+    .proyecto-accordion-header .badge-mini.soporte-badge {
+      background: #fff3cd;
+      color: #856404;
+    }
+
     .proyecto-accordion-header .toggle-icon {
       font-size: 1.2rem;
       color: var(--gray-dark);
@@ -838,42 +797,40 @@
       border: none;
     }
 
-    .proyecto-accordion-body .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .proyecto-accordion-body .info-grid .desc-box {
-      background: #f0f7ff;
-      padding: 1rem 1.25rem;
-      border-radius: var(--radius-md);
-      border-left: 4px solid #2196F3;
-    }
-
-    .proyecto-accordion-body .info-grid .tech-box {
+    /* ===== NUEVO: Todo con un solo color uniforme ===== */
+    .proyecto-accordion-body .info-detalle {
       background: var(--gray-light);
       padding: 1rem 1.25rem;
       border-radius: var(--radius-md);
       border-left: 4px solid var(--primary-light);
+      margin-top: 1rem;
     }
 
-    .proyecto-accordion-body .info-grid .desc-box strong,
-    .proyecto-accordion-body .info-grid .tech-box strong {
+    .proyecto-accordion-body .info-detalle.soporte-detalle {
+      border-left-color: #ffc107;
+    }
+
+    .proyecto-accordion-body .info-detalle strong {
       display: block;
       color: var(--primary-dark);
-      margin-bottom: 0.3rem;
       font-size: 0.85rem;
+      margin-bottom: 0.3rem;
     }
 
-    .proyecto-accordion-body .info-grid .desc-box p {
+    .proyecto-accordion-body .info-detalle p {
       font-size: 0.9rem;
       color: var(--gray-dark);
       margin: 0;
     }
 
-    .proyecto-accordion-body .info-grid .tech-box span {
+    .proyecto-accordion-body .info-detalle .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+    }
+
+    .proyecto-accordion-body .info-detalle .tech-tags span {
       display: inline-block;
       background: var(--primary);
       color: white;
@@ -881,29 +838,22 @@
       border-radius: 30px;
       font-size: 0.7rem;
       font-weight: 500;
-      margin-right: 0.4rem;
-      margin-bottom: 0.4rem;
     }
 
-    .proyecto-accordion-body .insights-box {
+    .proyecto-accordion-body .info-detalle .tech-tags .tech-soporte {
+      background: #ffc107;
+      color: #000;
+    }
+
+    .proyecto-accordion-body .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
       margin-top: 1rem;
-      padding: 0.75rem 1.25rem;
-      background: #fff8e1;
-      border-radius: var(--radius-md);
-      border-left: 4px solid #ffc107;
     }
 
-    .proyecto-accordion-body .insights-box strong {
-      display: block;
-      color: var(--primary-dark);
-      font-size: 0.85rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .proyecto-accordion-body .insights-box p {
-      font-size: 0.9rem;
-      color: var(--gray-dark);
-      margin: 0;
+    .proyecto-accordion-body .info-grid .info-detalle {
+      margin-top: 0;
     }
 
     /* ========== SOPORTE - SERVICIOS ========== */
@@ -1007,141 +957,119 @@
     }
 
     /* ========== FOOTER ========== */
-    /* ========== FOOTER MEJORADO ========== */
-footer {
-  background: var(--primary-dark);
-  color: var(--text-light);
-  padding: 2.5rem 1.5rem;
-  text-align: center;
-  margin-top: 2rem;
-}
+    footer {
+      background: var(--primary-dark);
+      color: var(--text-light);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
 
-.contacto {
-  max-width: 800px;
-  margin: 0 auto;
-}
+    .contacto {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-.contacto p {
-  margin-bottom: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
+    .contacto p {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
 
-.contacto p i {
-  font-size: 1.1rem;
-  width: 24px;
-  text-align: center;
-}
+    .contacto p i {
+      font-size: 1.1rem;
+      width: 24px;
+      text-align: center;
+    }
 
-.contacto a {
-  color: #a5d6a5;
-  text-decoration: none;
-  transition: var(--transition);
-  font-weight: 500;
-}
+    .contacto a {
+      color: #a5d6a5;
+      text-decoration: none;
+      transition: var(--transition);
+      font-weight: 500;
+    }
 
-.contacto a:hover {
-  color: white;
-  text-decoration: underline;
-}
+    .contacto a:hover {
+      color: white;
+      text-decoration: underline;
+    }
 
-/* Enlace de WhatsApp con color especial */
-.contacto a[href*="wa.me"] {
-  color: #25D366;
-}
+    .contacto a[href*="wa.me"] {
+      color: #25D366;
+    }
 
-.contacto a[href*="wa.me"]:hover {
-  color: #4ade80;
-  text-decoration: underline;
-}
+    .contacto a[href*="wa.me"]:hover {
+      color: #4ade80;
+      text-decoration: underline;
+    }
 
-/* Enlace de ubicación */
-.contacto a[href*="google.com/maps"] {
-  color: #a5d6a5;
-}
+    .contacto a[href*="google.com/maps"] {
+      color: #a5d6a5;
+    }
 
-.contacto a[href*="google.com/maps"]:hover {
-  color: white;
-}
+    .contacto a[href*="google.com/maps"]:hover {
+      color: white;
+    }
 
-.social-links {
-  margin: 1.25rem 0;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
+    .social-links {
+      margin: 1.25rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
 
-.social-links a {
-  color: var(--text-light);
-  font-size: 1.6rem;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
+    .social-links a {
+      color: var(--text-light);
+      font-size: 1.6rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-.social-links a:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.15);
-}
+    .social-links a:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.15);
+    }
 
-/* Colores específicos para cada red social en hover */
-.social-links a:hover .fa-github {
-  color: #f0f6fc;
-}
+    .social-links a:hover .fa-github {
+      color: #f0f6fc;
+    }
 
-.social-links a:hover .fa-linkedin {
-  color: #0A66C2;
-}
+    .social-links a:hover .fa-linkedin {
+      color: #0A66C2;
+    }
 
-.social-links a:hover .fa-envelope {
-  color: #EA4335;
-}
+    .social-links a:hover .fa-envelope {
+      color: #EA4335;
+    }
 
-.social-links a:hover .fa-whatsapp {
-  color: #25D366;
-}
+    .social-links a:hover .fa-whatsapp {
+      color: #25D366;
+    }
 
-.footer-divider {
-  width: 60px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.15);
-  margin: 1.5rem auto;
-}
+    .footer-divider {
+      width: 60px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.15);
+      margin: 1.5rem auto;
+    }
 
-.contacto p:last-child {
-  font-size: 0.85rem;
-  opacity: 0.7;
-  margin-top: 0.5rem;
-}
+    .contacto p:last-child {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-top: 0.5rem;
+    }
 
-/* ========== RESPONSIVE FOOTER ========== */
-@media (max-width: 600px) {
-  .contacto p {
-    flex-direction: row;
-    justify-content: center;
-    font-size: 0.9rem;
-  }
-  
-  .social-links {
-    gap: 1rem;
-  }
-  
-  .social-links a {
-    width: 42px;
-    height: 42px;
-    font-size: 1.3rem;
-  }
-}
     /* ========== ANIMACIONES ========== */
     @keyframes fadeInUp {
       from {
@@ -1155,12 +1083,30 @@ footer {
     }
 
     /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .sobre-mi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contacto-rapido {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 768px) {
       .container {
         padding: 2rem 1rem;
       }
       .sobre-mi, .certificaciones {
         padding: 1.5rem;
+      }
+      .sobre-mi-grid {
+        grid-template-columns: 1fr;
+      }
+      .contacto-rapido {
+        grid-template-columns: 1fr 1fr;
+      }
+      .soft-skills-grid {
+        grid-template-columns: 1fr 1fr;
       }
       .intro-banner {
         padding: 1.5rem 1.5rem;
@@ -1174,9 +1120,6 @@ footer {
       }
       .hero {
         min-height: 70vh;
-      }
-      .info-cards {
-        flex-direction: column;
       }
       .tab-btn {
         min-width: 120px;
@@ -1199,9 +1142,27 @@ footer {
       .proyecto-accordion.active .proyecto-accordion-body {
         padding: 0 1rem 1rem 1rem;
       }
-      .proyecto-accordion-body .info-grid .desc-box,
-      .proyecto-accordion-body .info-grid .tech-box {
-        padding: 0.75rem 1rem;
+    }
+
+    @media (max-width: 480px) {
+      .contacto-rapido {
+        grid-template-columns: 1fr;
+      }
+      .soft-skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .contacto p {
+        flex-direction: row;
+        justify-content: center;
+        font-size: 0.9rem;
+      }
+      .social-links {
+        gap: 1rem;
+      }
+      .social-links a {
+        width: 42px;
+        height: 42px;
+        font-size: 1.3rem;
       }
     }
 
@@ -1229,7 +1190,6 @@ footer {
 
   <main class="container">
     <!-- ========== SOBRE MÍ ========== -->
-        <!-- ========== SOBRE MÍ - REDISEÑADO ========== -->
     <section class="sobre-mi" aria-label="Información personal y profesional">
       <div class="sobre-mi-container">
         <div class="sobre-mi-header">
@@ -1242,9 +1202,7 @@ footer {
           </p>
         </div>
 
-        <!-- Grid principal con 3 columnas -->
         <div class="sobre-mi-grid">
-          <!-- Tarjeta: Experiencia -->
           <div class="sobre-card">
             <div class="sobre-card-icon">
               <i class="fas fa-briefcase"></i>
@@ -1255,16 +1213,14 @@ footer {
                 <span class="list-dot"></span>
                 <div>
                   <strong>Sudamericana de Software (SASF)</strong>
-                  <span>Creación y generación de reportes por medio flujogramas de DataStage Configuré jobs que alimentaban data, permitiendo 
-                    a los analistas visualizar indicadores clave (Ventas).</span>
+                  <span>Creación y generación de reportes por medio flujogramas de DataStage Configuré jobs que alimentaban data, permitiendo a los analistas visualizar indicadores clave (Ventas).</span>
                 </div>
               </li>
               <li>
                 <span class="list-dot"></span>
                 <div>
                   <strong>Dirección General de Aviación Civil (DAC)</strong>
-                  <span>Ingresar datos al sistema y registro de las entradas y salidas por cada compañía aérea. 
-                    Verifiqué diariamente los registros de llegadas y salidas de vuelos</span>
+                  <span>Ingresar datos al sistema y registro de las entradas y salidas por cada compañía aérea. Verifiqué diariamente los registros de llegadas y salidas de vuelos</span>
                 </div>
               </li>
               <li>
@@ -1277,7 +1233,6 @@ footer {
             </ul>
           </div>
 
-          <!-- Tarjeta: Habilidades Técnicas -->
           <div class="sobre-card">
             <div class="sobre-card-icon">
               <i class="fas fa-tools"></i>
@@ -1292,7 +1247,6 @@ footer {
             </div>
           </div>
 
-          <!-- Tarjeta: Soft Skills -->
           <div class="sobre-card">
             <div class="sobre-card-icon">
               <i class="fas fa-star"></i>
@@ -1326,8 +1280,6 @@ footer {
             </div>
           </div>
         </div>
-
-        
       </div>
     </section>
 
@@ -1346,7 +1298,6 @@ footer {
       <!-- ===== ANÁLISIS DE DATOS ===== -->
       <div id="tab-datos" class="tab-content active" role="tabpanel">
         
-        <!-- INTRODUCCIÓN CON IMAGEN DE FONDO -->
         <div class="intro-section">
           <div class="intro-banner datos-banner">
             <span class="intro-icon"><i class="fas fa-chart-line"></i></span>
@@ -1374,16 +1325,14 @@ footer {
           </div>
         </div>
 
-        <!-- Separador visual -->
         <div class="section-separator">
           <span class="label"><i class="fas fa-folder-open"></i> Proyectos</span>
         </div>
 
-        <!-- PROYECTOS ACCORDION -->
         <div class="proyectos-grid">
 
-          <!-- Proyecto 1 -->
-          <div class="proyecto-accordion active">
+          <!-- Proyecto 1 - INICIA CERRADO -->
+          <div class="proyecto-accordion">
             <div class="proyecto-accordion-header" onclick="toggleAccordion(this)">
               <div class="info-left">
                 <span class="numero">01</span>
@@ -1404,27 +1353,29 @@ footer {
                 </iframe>
               </div>
               <div class="info-grid">
-                <div class="desc-box">
+                <div class="info-detalle">
                   <strong><i class="fas fa-info-circle"></i> Descripción</strong>
                   <p>Dashboard para visualizar tendencias operativas, identificar rutas rentables y detectar riesgos logísticos mediante análisis de roles con Google App Script.</p>
                 </div>
-                <div class="tech-box">
+                <div class="info-detalle">
                   <strong><i class="fas fa-code"></i> Tecnologías</strong>
-                  <span>Power BI</span>
-                  <span>DAX</span>
-                  <span>Power Query</span>
-                  <span>PostgreSQL</span>
-                  <span>Google App Script</span>
+                  <div class="tech-tags">
+                    <span>Power BI</span>
+                    <span>DAX</span>
+                    <span>Power Query</span>
+                    <span>PostgreSQL</span>
+                    <span>Google App Script</span>
+                  </div>
                 </div>
               </div>
-              <div class="insights-box">
+              <div class="info-detalle">
                 <strong><i class="fas fa-lightbulb"></i> Insights clave</strong>
                 <p>Análisis de tendencias operativas, rentabilidad por ruta, identificación de riesgos logísticos.</p>
               </div>
             </div>
           </div>
 
-          <!-- Proyecto 2 -->
+          <!-- Proyecto 2 - INICIA CERRADO -->
           <div class="proyecto-accordion">
             <div class="proyecto-accordion-header" onclick="toggleAccordion(this)">
               <div class="info-left">
@@ -1446,26 +1397,28 @@ footer {
                 </iframe>
               </div>
               <div class="info-grid">
-                <div class="desc-box">
+                <div class="info-detalle">
                   <strong><i class="fas fa-info-circle"></i> Descripción</strong>
                   <p>Dashboard con KPIs clave (ingresos, margen, ticket promedio), análisis estacional, ranking de productos y proyecciones a 12 meses.</p>
                 </div>
-                <div class="tech-box">
+                <div class="info-detalle">
                   <strong><i class="fas fa-code"></i> Tecnologías</strong>
-                  <span>Power BI</span>
-                  <span>DAX</span>
-                  <span>Power Query</span>
-                  <span>SQL Server</span>
+                  <div class="tech-tags">
+                    <span>Power BI</span>
+                    <span>DAX</span>
+                    <span>Power Query</span>
+                    <span>SQL Server</span>
+                  </div>
                 </div>
               </div>
-              <div class="insights-box">
+              <div class="info-detalle">
                 <strong><i class="fas fa-lightbulb"></i> Insights clave</strong>
                 <p>Tendencias estacionales, top productos más vendidos, proyección de ventas a 12 meses, segmentación de clientes.</p>
               </div>
             </div>
           </div>
 
-          <!-- Proyecto 3 -->
+          <!-- Proyecto 3 - INICIA CERRADO -->
           <div class="proyecto-accordion">
             <div class="proyecto-accordion-header" onclick="toggleAccordion(this)">
               <div class="info-left">
@@ -1487,26 +1440,28 @@ footer {
                 </iframe>
               </div>
               <div class="info-grid">
-                <div class="desc-box">
+                <div class="info-detalle">
                   <strong><i class="fas fa-info-circle"></i> Descripción</strong>
                   <p>Dashboard que compara el rendimiento de entidades bancarias mediante tooltips interactivos, análisis de rentabilidad y eficiencia operativa.</p>
                 </div>
-                <div class="tech-box">
+                <div class="info-detalle">
                   <strong><i class="fas fa-code"></i> Tecnologías</strong>
-                  <span>Power BI</span>
-                  <span>Tooltips</span>
-                  <span>Power Query</span>
-                  <span>SQL Server</span>
+                  <div class="tech-tags">
+                    <span>Power BI</span>
+                    <span>Tooltips</span>
+                    <span>Power Query</span>
+                    <span>SQL Server</span>
+                  </div>
                 </div>
               </div>
-              <div class="insights-box">
+              <div class="info-detalle">
                 <strong><i class="fas fa-lightbulb"></i> Insights clave</strong>
                 <p>Análisis financiero por diferentes entidades bancarias, comparativas de rendimiento y eficiencia.</p>
               </div>
             </div>
           </div>
 
-          <!-- Proyecto 4 -->
+          <!-- Proyecto 4 - INICIA CERRADO -->
           <div class="proyecto-accordion">
             <div class="proyecto-accordion-header" onclick="toggleAccordion(this)">
               <div class="info-left">
@@ -1528,26 +1483,28 @@ footer {
                 </iframe>
               </div>
               <div class="info-grid">
-                <div class="desc-box">
+                <div class="info-detalle">
                   <strong><i class="fas fa-info-circle"></i> Descripción</strong>
                   <p>Dashboard para medir productividad por operador, identificar cuellos de botella y proyectar producción a 12 meses con análisis de tendencias.</p>
                 </div>
-                <div class="tech-box">
+                <div class="info-detalle">
                   <strong><i class="fas fa-code"></i> Tecnologías</strong>
-                  <span>Power BI</span>
-                  <span>DAX</span>
-                  <span>Power Query</span>
-                  <span>SQL Server</span>
+                  <div class="tech-tags">
+                    <span>Power BI</span>
+                    <span>DAX</span>
+                    <span>Power Query</span>
+                    <span>SQL Server</span>
+                  </div>
                 </div>
               </div>
-              <div class="insights-box">
+              <div class="info-detalle">
                 <strong><i class="fas fa-lightbulb"></i> Insights clave</strong>
                 <p>Productividad por operador, proyección de producción a 12 meses, identificación de cuellos de botella.</p>
               </div>
             </div>
           </div>
 
-          <!-- Proyecto 5 -->
+          <!-- Proyecto 5 - INICIA CERRADO -->
           <div class="proyecto-accordion">
             <div class="proyecto-accordion-header" onclick="toggleAccordion(this)">
               <div class="info-left">
@@ -1569,19 +1526,21 @@ footer {
                 </iframe>
               </div>
               <div class="info-grid">
-                <div class="desc-box">
+                <div class="info-detalle">
                   <strong><i class="fas fa-info-circle"></i> Descripción</strong>
                   <p>Dashboard financiero para tienda minorista con segmentación por categorías: muebles, tecnología y oficina. Incluye rentabilidad y ranking.</p>
                 </div>
-                <div class="tech-box">
+                <div class="info-detalle">
                   <strong><i class="fas fa-code"></i> Tecnologías</strong>
-                  <span>Power BI</span>
-                  <span>DAX</span>
-                  <span>Power Query</span>
-                  <span>SQL Server</span>
+                  <div class="tech-tags">
+                    <span>Power BI</span>
+                    <span>DAX</span>
+                    <span>Power Query</span>
+                    <span>SQL Server</span>
+                  </div>
                 </div>
               </div>
-              <div class="insights-box">
+              <div class="info-detalle">
                 <strong><i class="fas fa-lightbulb"></i> Insights clave</strong>
                 <p>Tendencias de ventas, top productos, proyección a 12 meses, segmentación por categorías (muebles, tecnología, oficina).</p>
               </div>
@@ -1594,7 +1553,6 @@ footer {
       <!-- ===== SOPORTE TÉCNICO ===== -->
       <div id="tab-soporte" class="tab-content" role="tabpanel">
         
-        <!-- INTRODUCCIÓN CON IMAGEN DE FONDO PARA SOPORTE -->
         <div class="intro-section">
           <div class="intro-banner soporte-banner">
             <span class="intro-icon"><i class="fas fa-tools"></i></span>
@@ -1619,12 +1577,10 @@ footer {
           </div>
         </div>
 
-        <!-- Separador -->
         <div class="section-separator">
           <span class="label"><i class="fas fa-cogs"></i> Servicios</span>
         </div>
 
-        <!-- Servicios -->
         <div class="soporte-services">
           <div class="service-card">
             <i class="fas fa-desktop"></i>
@@ -1648,6 +1604,134 @@ footer {
           </div>
         </div>
 
+        <div class="section-separator">
+          <span class="label"><i class="fas fa-folder-open"></i> Proyectos</span>
+        </div>
+
+        <div class="proyectos-grid">
+          <!-- Proyecto Soporte 1 - INICIA CERRADO -->
+          <div class="proyecto-accordion">
+            <div class="proyecto-accordion-header" onclick="toggleAccordion(this)">
+              <div class="info-left">
+                <span class="numero" style="background: #fff3cd; color: #856404;">01</span>
+                <div class="info-text">
+                  <h3>Implementación de Help Desk</h3>
+                  <p>Sistema de mesa de ayuda con OSTicket</p>
+                </div>
+              </div>
+              <span class="badge-mini soporte-badge"><i class="fas fa-tools"></i> Soporte</span>
+              <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="proyecto-accordion-body">
+              <div style="background: var(--gray-light); padding: 2rem; border-radius: var(--radius-md); text-align: center; margin-bottom: 1rem;">
+                <i class="fas fa-ticket-alt" style="font-size: 3rem; color: #ffc107;"></i>
+                <h4 style="color: var(--primary-dark); margin-top: 0.5rem;">Sistema de Tickets Implementado</h4>
+                <p style="color: var(--gray-dark);">Gestión de incidencias con priorización, seguimiento y reportes de SLA</p>
+              </div>
+              <div class="info-grid">
+                <div class="info-detalle soporte-detalle">
+                  <strong><i class="fas fa-info-circle"></i> Descripción</strong>
+                  <p>Implementación de Help Desk con OSTicket para gestión eficiente de incidencias, priorización de tickets y generación de reportes SLA.</p>
+                </div>
+                <div class="info-detalle soporte-detalle">
+                  <strong><i class="fas fa-code"></i> Tecnologías</strong>
+                  <div class="tech-tags">
+                    <span class="tech-soporte">OSTicket</span>
+                    <span class="tech-soporte">MySQL</span>
+                    <span class="tech-soporte">Apache</span>
+                    <span class="tech-soporte">Windows Server</span>
+                  </div>
+                </div>
+              </div>
+              <div class="info-detalle soporte-detalle">
+                <strong><i class="fas fa-check-circle"></i> Resultados</strong>
+                <p>Reducción del 40% en tiempo de respuesta, seguimiento efectivo de incidencias, reportes mensuales de satisfacción.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto Soporte 2 - INICIA CERRADO -->
+          <div class="proyecto-accordion">
+            <div class="proyecto-accordion-header" onclick="toggleAccordion(this)">
+              <div class="info-left">
+                <span class="numero" style="background: #fff3cd; color: #856404;">02</span>
+                <div class="info-text">
+                  <h3>Migración a Windows 11</h3>
+                  <p>Actualización de 50+ equipos en organización</p>
+                </div>
+              </div>
+              <span class="badge-mini soporte-badge"><i class="fas fa-tools"></i> Soporte</span>
+              <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="proyecto-accordion-body">
+              <div style="background: var(--gray-light); padding: 2rem; border-radius: var(--radius-md); text-align: center; margin-bottom: 1rem;">
+                <i class="fas fa-server" style="font-size: 3rem; color: #ffc107;"></i>
+                <h4 style="color: var(--primary-dark); margin-top: 0.5rem;">Infraestructura Modernizada</h4>
+                <p style="color: var(--gray-dark);">Actualización de 50+ equipos, migración de datos y capacitación a usuarios</p>
+              </div>
+              <div class="info-grid">
+                <div class="info-detalle soporte-detalle">
+                  <strong><i class="fas fa-info-circle"></i> Descripción</strong>
+                  <p>Migración de 50+ equipos a Windows 11 con actualización de hardware, migración de datos, configuración de Active Directory y capacitación al personal.</p>
+                </div>
+                <div class="info-detalle soporte-detalle">
+                  <strong><i class="fas fa-code"></i> Tecnologías</strong>
+                  <div class="tech-tags">
+                    <span class="tech-soporte">Windows 11</span>
+                    <span class="tech-soporte">Active Directory</span>
+                    <span class="tech-soporte">Acronis Backup</span>
+                    <span class="tech-soporte">Redes LAN</span>
+                  </div>
+                </div>
+              </div>
+              <div class="info-detalle soporte-detalle">
+                <strong><i class="fas fa-check-circle"></i> Resultados</strong>
+                <p>Cero pérdida de datos, mejora del 60% en rendimiento, capacitación exitosa al 100% del personal.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto Soporte 3 - INICIA CERRADO -->
+          <div class="proyecto-accordion">
+            <div class="proyecto-accordion-header" onclick="toggleAccordion(this)">
+              <div class="info-left">
+                <span class="numero" style="background: #fff3cd; color: #856404;">03</span>
+                <div class="info-text">
+                  <h3>Seguridad y Respaldos</h3>
+                  <p>Políticas de seguridad y backups automatizados</p>
+                </div>
+              </div>
+              <span class="badge-mini soporte-badge"><i class="fas fa-tools"></i> Soporte</span>
+              <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="proyecto-accordion-body">
+              <div style="background: var(--gray-light); padding: 2rem; border-radius: var(--radius-md); text-align: center; margin-bottom: 1rem;">
+                <i class="fas fa-shield-alt" style="font-size: 3rem; color: #ffc107;"></i>
+                <h4 style="color: var(--primary-dark); margin-top: 0.5rem;">Seguridad Integral</h4>
+                <p style="color: var(--gray-dark);">Políticas de seguridad, backups diarios y plan de recuperación ante desastres</p>
+              </div>
+              <div class="info-grid">
+                <div class="info-detalle soporte-detalle">
+                  <strong><i class="fas fa-info-circle"></i> Descripción</strong>
+                  <p>Implementación de seguridad con cifrado BitLocker, backups automatizados diarios, configuración de firewall y políticas de acceso.</p>
+                </div>
+                <div class="info-detalle soporte-detalle">
+                  <strong><i class="fas fa-code"></i> Tecnologías</strong>
+                  <div class="tech-tags">
+                    <span class="tech-soporte">BitLocker</span>
+                    <span class="tech-soporte">Veeam Backup</span>
+                    <span class="tech-soporte">Firewall</span>
+                    <span class="tech-soporte">Active Directory</span>
+                  </div>
+                </div>
+              </div>
+              <div class="info-detalle soporte-detalle">
+                <strong><i class="fas fa-check-circle"></i> Resultados</strong>
+                <p>100% de datos respaldados diariamente, cero incidentes de seguridad en 6 meses, tiempo de recuperación reducido a 2 horas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1657,10 +1741,9 @@ footer {
       <div class="cert-grid">
         <div class="cert-item">
           <i class="fas fa-graduation-cap"></i>
-          <h4>Data Analyst (Basico)</h4>
+          <h4>Data Analyst (Básico)</h4>
           <p>DS4B</p>
         </div>
-        
         <div class="cert-item cert-soporte">
           <i class="fas fa-graduation-cap"></i>
           <h4>Help Desk</h4>
@@ -1671,7 +1754,6 @@ footer {
           <h4>SQL Server</h4>
           <p>Universidad de Guayaquil</p>
         </div>
-        
       </div>
     </section>
 
@@ -1679,38 +1761,35 @@ footer {
 
   <!-- ========== FOOTER ========== -->
   <footer>
-  <div class="contacto">  
-    <!-- Ubicación (con enlace a Google Maps) -->
-    <p>
-      <i class="fas fa-map-marker-alt"></i> 
+    <div class="contacto">
+      <p>
+        <i class="fas fa-map-marker-alt"></i> 
         Guayaquil, Ecuador
-      </a>
-    </p>
-    
-    <!-- Redes Sociales -->
-    <div class="social-links">
-      <a href="https://github.com/MorielEder" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/eder-moriel-66a002272/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="mailto:edermoriel@hotmail.com?subject=Contacto%20desde%20tu%20portafolio" aria-label="Correo electrónico">
-        <i class="fas fa-envelope"></i>
-      </a>
-      <a href="https://wa.me/593963156344?text=Hola%20Eder%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         aria-label="WhatsApp"
-         style="color: #25D366;">
-        <i class="fab fa-whatsapp"></i>
-      </a>
+      </p>
+      
+      <div class="social-links">
+        <a href="https://github.com/MorielEder" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/eder-moriel-66a002272/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:edermoriel@hotmail.com?subject=Contacto%20desde%20tu%20portafolio" aria-label="Correo electrónico">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://wa.me/593963156344?text=Hola%20Eder%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           aria-label="WhatsApp"
+           style="color: #25D366;">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+      
+      <div class="footer-divider"></div>
+      <p>Portafolio | Eder Moriel</p>
     </div>
-    
-    <div class="footer-divider"></div>
-    <p>Portafolio | Eder Moriel</p>
-  </div>
-</footer>
+  </footer>
 
   <!-- ========== JAVASCRIPT ========== -->
   <script>
@@ -1720,14 +1799,6 @@ footer {
       if (!accordion) return;
       accordion.classList.toggle('active');
     }
-
-    // Abrir el primer accordion por defecto en datos
-    document.addEventListener('DOMContentLoaded', function() {
-      const firstAccordion = document.querySelector('#tab-datos .proyecto-accordion');
-      if (firstAccordion) {
-        firstAccordion.classList.add('active');
-      }
-    });
 
     // ===== TABS =====
     (function() {
