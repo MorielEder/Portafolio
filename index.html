@@ -131,67 +131,26 @@
   }
   
   .hero h2 {
-    font-size: 0.9rem;  /* ⬆️ ANTES: 0.75rem */
+    font-size: 0.9.5rem;  /* ⬆️ ANTES: 0.75rem */
     letter-spacing: 2px;
     margin-bottom: 0.3rem;
   }
   
   .hero h1 {
-    font-size: clamp(2rem, 6vw, 2.6rem);  /* ⬆️ ANTES: 1.6rem, 5.5vw, 2.2rem */
+    font-size: clamp(2.5rem, 6.3vw, 2.9rem);  /* ⬆️ ANTES: 1.6rem, 5.5vw, 2.2rem */
     margin-bottom: 0.4rem;
   }
   
   .hero .subtitle {
-    font-size: clamp(1.1rem, 3.5vw, 1.4rem);  /* ⬆️ ANTES: 0.95rem, 3vw, 1.2rem */
+    font-size: clamp(1.5rem, 3.9vw, 1.9rem);  /* ⬆️ ANTES: 0.95rem, 3vw, 1.2rem */
     letter-spacing: 0.3px;
   }
 }
 
-@media (max-width: 480px) {
-  .hero {
-    min-height: 35vh;
-    padding: 1rem 0.8rem;
-  }
-  
-  .hero h2 {
-    font-size: 0.75rem;  /* ⬆️ ANTES: 0.65rem */
-    letter-spacing: 1.5px;
-    margin-bottom: 0.2rem;
-  }
-  
-  .hero h1 {
-    font-size: clamp(1.6rem, 5.5vw, 2rem);  /* ⬆️ ANTES: 1.3rem, 5vw, 1.7rem */
-    margin-bottom: 0.3rem;
-  }
-  
-  .hero .subtitle {
-    font-size: clamp(0.95rem, 3.2vw, 1.1rem);  /* ⬆️ ANTES: 0.8rem, 2.8vw, 1rem */
-  }
-}
 
-/* ========== SOBRE MÍ - TAMAÑOS AUMENTADOS ========== */
-.sobre-mi-header p {
-  font-size: clamp(1rem, 2vw, 1.2rem);  /* ⬆️ AUMENTADO */
-  text-align: justify;
-  line-height: 1.8;
-  color: var(--gray-dark);
-  margin-top: 0.5rem;
-}
 
-/* En móvil el texto de Sobre Mí también aumenta */
-@media (max-width: 768px) {
-  .sobre-mi-header p {
-    font-size: clamp(0.95rem, 2.5vw, 1.1rem);  /* ⬆️ AUMENTADO */
-    line-height: 1.8;
-  }
-}
 
-@media (max-width: 480px) {
-  .sobre-mi-header p {
-    font-size: clamp(0.9rem, 2.8vw, 1rem);  /* ⬆️ AUMENTADO */
-    line-height: 1.9;
-  }
-}
+
 /* ========== RESPONSIVE PARA TABLETS ========== */
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero {
