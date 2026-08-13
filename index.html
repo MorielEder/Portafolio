@@ -1007,60 +1007,141 @@
     }
 
     /* ========== FOOTER ========== */
-    footer {
-      background: var(--primary-dark);
-      color: var(--text-light);
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      margin-top: 2rem;
-    }
+    /* ========== FOOTER MEJORADO ========== */
+footer {
+  background: var(--primary-dark);
+  color: var(--text-light);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
 
-    .contacto {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+.contacto {
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-    .contacto p {
-      margin-bottom: 0.75rem;
-    }
+.contacto p {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
 
-    .contacto a {
-      color: #a5d6a5;
-      text-decoration: none;
-      transition: var(--transition);
-      font-weight: 500;
-    }
+.contacto p i {
+  font-size: 1.1rem;
+  width: 24px;
+  text-align: center;
+}
 
-    .contacto a:hover {
-      color: white;
-      text-decoration: underline;
-    }
+.contacto a {
+  color: #a5d6a5;
+  text-decoration: none;
+  transition: var(--transition);
+  font-weight: 500;
+}
 
-    .social-links {
-      margin: 1.25rem 0;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-    }
+.contacto a:hover {
+  color: white;
+  text-decoration: underline;
+}
 
-    .social-links a {
-      color: var(--text-light);
-      font-size: 1.5rem;
-      transition: var(--transition);
-    }
+/* Enlace de WhatsApp con color especial */
+.contacto a[href*="wa.me"] {
+  color: #25D366;
+}
 
-    .social-links a:hover {
-      color: #a5d6a5;
-      transform: translateY(-2px);
-    }
+.contacto a[href*="wa.me"]:hover {
+  color: #4ade80;
+  text-decoration: underline;
+}
 
-    .footer-divider {
-      width: 60px;
-      height: 2px;
-      background: rgba(255, 255, 255, 0.2);
-      margin: 1rem auto;
-    }
+/* Enlace de ubicación */
+.contacto a[href*="google.com/maps"] {
+  color: #a5d6a5;
+}
 
+.contacto a[href*="google.com/maps"]:hover {
+  color: white;
+}
+
+.social-links {
+  margin: 1.25rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: var(--text-light);
+  font-size: 1.6rem;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links a:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Colores específicos para cada red social en hover */
+.social-links a:hover .fa-github {
+  color: #f0f6fc;
+}
+
+.social-links a:hover .fa-linkedin {
+  color: #0A66C2;
+}
+
+.social-links a:hover .fa-envelope {
+  color: #EA4335;
+}
+
+.social-links a:hover .fa-whatsapp {
+  color: #25D366;
+}
+
+.footer-divider {
+  width: 60px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 1.5rem auto;
+}
+
+.contacto p:last-child {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 0.5rem;
+}
+
+/* ========== RESPONSIVE FOOTER ========== */
+@media (max-width: 600px) {
+  .contacto p {
+    flex-direction: row;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+  
+  .social-links {
+    gap: 1rem;
+  }
+  
+  .social-links a {
+    width: 42px;
+    height: 42px;
+    font-size: 1.3rem;
+  }
+}
     /* ========== ANIMACIONES ========== */
     @keyframes fadeInUp {
       from {
@@ -1598,19 +1679,60 @@
 
   <!-- ========== FOOTER ========== -->
   <footer>
-    <div class="contacto">
-      <p><i class="fas fa-envelope"></i> <a href="mailto:edermoriel@hotmail.com">edermoriel@hotmail.com</a></p>
-      <p><i class="fas fa-phone-alt"></i> Teléfono: 0963156344</p>
-      <p><i class="fas fa-map-marker-alt"></i> Guayaquil, Ecuador</p>
-      <div class="social-links">
-        <a href="https://github.com/MorielEder" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/eder-moriel-66a002272/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:edermoriel@hotmail.com" aria-label="Correo electrónico"><i class="fas fa-envelope"></i></a>
-      </div>
-      <div class="footer-divider"></div>
-      <p>Portafolio | Eder Moriel </p>
+  <div class="contacto">
+    <!-- Enlace a WhatsApp -->
+    <p>
+      <i class="fab fa-whatsapp"></i> 
+      <a href="https://wa.me/593963156344?text=Hola%20Eder%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         style="color: #25D366;">
+        +593 96 315 6344
+      </a>
+    </p>
+    
+    <!-- Enlace a Correo -->
+    <p>
+      <i class="fas fa-envelope"></i> 
+      <a href="mailto:edermoriel@hotmail.com?subject=Contacto%20desde%20tu%20portafolio&body=Hola%20Eder%2C%20me%20interesa%20contactarte">
+        edermoriel@hotmail.com
+      </a>
+    </p>
+    
+    <!-- Ubicación (con enlace a Google Maps) -->
+    <p>
+      <i class="fas fa-map-marker-alt"></i> 
+      <a href="https://www.google.com/maps/search/Guayaquil,+Ecuador" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        Guayaquil, Ecuador
+      </a>
+    </p>
+    
+    <!-- Redes Sociales -->
+    <div class="social-links">
+      <a href="https://github.com/MorielEder" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/eder-moriel-66a002272/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="mailto:edermoriel@hotmail.com?subject=Contacto%20desde%20tu%20portafolio" aria-label="Correo electrónico">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://wa.me/593963156344?text=Hola%20Eder%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         aria-label="WhatsApp"
+         style="color: #25D366;">
+        <i class="fab fa-whatsapp"></i>
+      </a>
     </div>
-  </footer>
+    
+    <div class="footer-divider"></div>
+    <p>Portafolio | Eder Moriel © 2025</p>
+  </div>
+</footer>
 
   <!-- ========== JAVASCRIPT ========== -->
   <script>
