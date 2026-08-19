@@ -383,21 +383,31 @@
 }
 
 /* ========== SOBRE MÍ - RESPONSIVE MEJORADO ========== */
+/* ========== RESPONSIVE SOBRE MÍ ========== */
+@media (max-width: 1024px) {
+  .sobre-mi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .sobre-mi {
     padding: 1rem;
     margin-bottom: 1.5rem;
   }
   
+  /* === TARJETAS EN VERTICAL (una debajo de la otra) === */
   .sobre-mi-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;  /* Forzamos una sola columna */
     gap: 0.8rem;
     margin-top: 1rem;
+    max-width: 100% !important;
   }
   
   .sobre-card {
     padding: 0.8rem 1rem;
     border-radius: var(--radius-md);
+    width: 100%;
   }
   
   .sobre-card-icon {
@@ -413,6 +423,7 @@
     margin-bottom: 0.5rem;
   }
   
+  /* === LISTA DE EXPERIENCIA === */
   .sobre-card-list li {
     gap: 0.5rem;
     margin-bottom: 0.5rem;
@@ -423,7 +434,7 @@
   }
   
   .sobre-card-list li span {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     line-height: 1.4;
   }
   
@@ -433,14 +444,15 @@
     margin-top: 4px;
   }
   
+  /* === SOFT SKILLS === */
   .soft-skills-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;  /* Las soft skills en 2 columnas dentro de su tarjeta */
     gap: 0.4rem;
   }
   
   .soft-skill {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
     border-radius: 6px;
   }
   
@@ -450,9 +462,10 @@
   }
   
   .soft-skill span {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
   }
   
+  /* === TÍTULO Y DESCRIPCIÓN === */
   .section-title {
     font-size: 1.3rem;
     margin-bottom: 0.3rem;
@@ -471,12 +484,24 @@
     border-radius: var(--radius-md);
   }
   
+  .sobre-mi-grid {
+    gap: 0.6rem;
+  }
+  
   .sobre-card {
     padding: 0.6rem 0.8rem;
   }
   
   .sobre-card h3 {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .sobre-card-list li strong {
+    font-size: 0.75rem;
+  }
+  
+  .sobre-card-list li span {
+    font-size: 0.7rem;
   }
   
   .soft-skills-grid {
@@ -485,15 +510,16 @@
   }
   
   .soft-skill {
-    padding: 0.2rem 0.4rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .soft-skill i {
     font-size: 0.65rem;
+    width: 12px;
   }
   
   .soft-skill span {
-    font-size: 0.6rem;
-  }
-  
-  .sobre-card-list li span {
     font-size: 0.65rem;
   }
   
@@ -501,12 +527,6 @@
     font-size: 1.1rem;
   }
 }
-
-    /* ========== TABS ========== */
-    .tabs-container {
-      margin-bottom: 2.5rem;
-    }
-
     /* ========== TABS MEJORADOS ========== */
 .tabs-nav {
   display: flex;
