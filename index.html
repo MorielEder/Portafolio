@@ -467,7 +467,7 @@
   
   /* === TÍTULO Y DESCRIPCIÓN === */
   .section-title {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 0.3rem;
   }
   
@@ -542,6 +542,11 @@
 }
 
 /* ========== TABS - VERSIÓN MEJORADA PARA MÓVIL ========== */
+/* ========== TABS CON ANIMACIÓN ========== */
+.tabs-container {
+  margin-bottom: 2.5rem;
+}
+
 .tabs-nav {
   display: flex;
   gap: 0.5rem;
@@ -552,6 +557,51 @@
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
   border: 2px solid var(--gray);
+  position: relative;
+  overflow: hidden;
+}
+
+/* === EFECTO DE BRILLO EN EL BORDE DEL CONTENEDOR === */
+.tabs-nav::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    rgba(46, 125, 50, 0.3) 50%, 
+    transparent 70%
+  );
+  background-size: 200% 200%;
+  animation: borderGlow 3s ease-in-out infinite;
+  border-radius: var(--radius-lg);
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Activamos el brillo solo en móvil */
+@media (max-width: 768px) {
+  .tabs-nav::before {
+    opacity: 1;
+  }
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.3;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.3;
+  }
 }
 
 .tab-btn {
@@ -571,27 +621,94 @@
   justify-content: center;
   gap: 0.5rem;
   font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 1;
 }
 
-.tab-btn:active {
-  transform: scale(0.95);
+/* === ANIMACIÓN DE PARPADEO EN EL BOTÓN === */
+.tab-btn:not(.active) {
+  animation: pulseGlow 2s ease-in-out infinite;
 }
 
-.tab-btn i {
-  font-size: 1.1rem;
+/* Animación de brillo para el botón de Soporte (el que no está activo) */
+.tab-btn:not(.active):nth-child(2) {
+  animation-duration: 2.5s;
+  animation-delay: 0.5s;
 }
 
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(46, 125, 50, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(46, 125, 50, 0.4), 0 0 40px rgba(46, 125, 50, 0.1);
+    transform: scale(1.02);
+  }
+}
+
+/* Efecto de brillo para el botón de Soporte Técnico (color dorado) */
+.tab-btn:not(.active)[data-tab="soporte"] {
+  animation-name: pulseGold;
+}
+
+@keyframes pulseGold {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 193, 7, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 193, 7, 0.5), 0 0 50px rgba(255, 193, 7, 0.15);
+    transform: scale(1.03);
+    background: rgba(255, 193, 7, 0.1);
+  }
+}
+
+/* === EFECTO DE ONDA EN EL BOTÓN (opcional) === */
+.tab-btn:not(.active)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(46, 125, 50, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: -1;
+}
+
+.tab-btn:not(.active):hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* === BOTÓN ACTIVO (sin animación) === */
 .tab-btn.active {
   background: var(--primary-dark);
   color: white;
   box-shadow: var(--shadow-md);
   border-color: var(--primary-light);
+  animation: none !important;
 }
 
 .tab-btn.active-soporte {
   background: #e6a800;
   color: white;
   border-color: #ffc107;
+  animation: none !important;
+}
+
+.tab-btn i {
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tab-btn .tab-label {
+  position: relative;
+  z-index: 1;
 }
 
 .tab-content {
@@ -603,7 +720,7 @@
   display: block;
 }
 
-/* ===== RESPONSIVE MÓVIL MEJORADO ===== */
+/* === RESPONSIVE MÓVIL === */
 @media (max-width: 768px) {
   .tabs-nav {
     flex-direction: row;
@@ -613,6 +730,26 @@
     background: var(--gray-light);
     border: 2px solid var(--primary-soft);
     position: relative;
+  }
+  
+  .tabs-nav::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+      transparent 30%, 
+      rgba(46, 125, 50, 0.4) 50%, 
+      transparent 70%
+    );
+    background-size: 200% 200%;
+    animation: borderGlow 3s ease-in-out infinite;
+    border-radius: var(--radius-md);
+    z-index: 0;
+    opacity: 1;
+    pointer-events: none;
   }
   
   .tab-btn {
@@ -628,6 +765,40 @@
     text-align: center;
     flex-direction: column;
     gap: 0.15rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Animación más suave en móvil */
+  .tab-btn:not(.active) {
+    animation: pulseGlowMobile 2.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulseGlowMobile {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(46, 125, 50, 0.15);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 15px rgba(46, 125, 50, 0.3), 0 0 30px rgba(46, 125, 50, 0.08);
+      transform: scale(1.03);
+    }
+  }
+  
+  .tab-btn:not(.active)[data-tab="soporte"] {
+    animation-name: pulseGoldMobile;
+  }
+  
+  @keyframes pulseGoldMobile {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(255, 193, 7, 0.15);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 193, 7, 0.35), 0 0 40px rgba(255, 193, 7, 0.1);
+      transform: scale(1.04);
+      background: rgba(255, 193, 7, 0.08);
+    }
   }
   
   .tab-btn i {
@@ -644,16 +815,42 @@
     color: white;
     border-color: var(--primary-light);
     box-shadow: var(--shadow-md);
+    animation: none !important;
   }
   
   .tab-btn.active-soporte {
     background: #e6a800;
     color: white;
     border-color: #ffc107;
+    animation: none !important;
   }
   
   .tab-btn:active {
     transform: scale(0.92);
+  }
+  
+  /* Flecha indicadora animada */
+  .tabs-nav::after {
+    content: '👆';
+    position: absolute;
+    bottom: -1.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    opacity: 0.6;
+    animation: bounceArrow 2s ease-in-out infinite;
+    display: block;
+  }
+  
+  @keyframes bounceArrow {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateX(-50%) translateY(5px);
+      opacity: 1;
+    }
   }
 }
 
